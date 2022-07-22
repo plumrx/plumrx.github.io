@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-狗屁不通文章生成器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/07/22/%E7%8B%97%E5%B1%81%E4%B8%8D%E9%80%9A%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E5%99%A8/" class="article-date">
+  <time datetime="2022-07-22T11:20:15.000Z" itemprop="datePublished">2022-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/22/%E7%8B%97%E5%B1%81%E4%B8%8D%E9%80%9A%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E5%99%A8/">狗屁不通文章生成器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>闲来无事，突发奇想，遂做了一个“狗屁不通文章生成器”玩玩。</p>
+<h2 id="分析文章构成"><a href="#分析文章构成" class="headerlink" title="分析文章构成"></a>分析文章构成</h2><p>想起学生时代写作文，无非就是几个套路：引经据典、修辞手法或是空话套话。所以我打算用名人名言+空话套话的构成，生成一片文章。  </p>
+<ol>
+<li>收集名人 &amp; 名言<br>他们谁说的，说的什么，是不是他说的都不重要，反正拼起来就成。上学的时候，想不起来对应人名，不也都是瞎编的吗？中文都是鲁迅说的，英文都是卡耐基。所以这里我也准备随意拼凑，玩的就是一个“狗屁不通”。</li>
+</ol>
+<p>分别将名人和名言存放在两个键值对中，以备后用  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">   &quot;famous_people&quot;: [</span><br><span class="line">	&quot;鲁迅&quot;,</span><br><span class="line">	&quot;卡耐基&quot;,</span><br><span class="line">	&quot;鬼谷子&quot;,</span><br><span class="line">	&quot;爱迪生&quot;,</span><br><span class="line">	&quot;马克思&quot;,</span><br><span class="line">	&quot;恩格斯&quot;,</span><br><span class="line">	&quot;老子&quot;,</span><br><span class="line">	&quot;李白&quot;,</span><br><span class="line">	&quot;杜甫&quot;,</span><br><span class="line">	&quot;曹操&quot;</span><br><span class="line">],</span><br><span class="line">   &quot;famous_words&quot;: [</span><br><span class="line">	&quot;志不强者智不达。&quot;,</span><br><span class="line">	&quot;天行健，君子以自强不息。&quot;,</span><br><span class="line">	&quot;伟人之所以伟大，是因为他与别人共处逆境时，别人失去了信心，他却下决心实现自己的目标。环境永远不会十全十美，消极的人受环境控制，积极的人却控制环境。&quot;,</span><br><span class="line">	&quot;不求与人相比，但求超越自己，要哭就哭出激动的泪水，要笑就笑出成长的性格!&quot;,</span><br><span class="line">	&quot;生命不是要超越别人，而是要超越自己。&quot;,</span><br><span class="line">	&quot;成大事不在于力量多少，而在能坚持多久。&quot;,</span><br><span class="line">	&quot;上帝从不抱怨人们的愚昧，人们却抱怨上帝的不公平。&quot;,</span><br><span class="line">	&quot;学习时的苦痛是暂时的，未学到的痛苦是终生的。&quot;,</span><br><span class="line">	&quot;环境永远不会十全十美，消极的人受环境控制，积极的人却控制环境。&quot;,</span><br><span class="line">	&quot;只有不断找寻机会的人才会及时把握机会，越努力，越幸运。&quot;,</span><br><span class="line">	&quot;世上只有想不通的人，没有走不通的路。&quot;,</span><br><span class="line">	&quot;伟人之所以伟大，是因为他与别人共处逆境时，别人失去了信心，他却下决心实现自己的目标。&quot;,</span><br><span class="line">	&quot;生活不是林黛玉，不会因为忧伤而风情万种。&quot;,</span><br><span class="line">	&quot;人不怕走在黑夜里，就怕心中没有阳光。&quot;,</span><br><span class="line">	&quot;幸运之神的降临，往往只是因为你多看了一眼，多想了一下，多走了一步。&quot;,</span><br><span class="line">	&quot;积极的人在每一次忧患中都看到一个机会，而消极的人则在每个机会都看到某种忧患。&quot;,</span><br><span class="line">	&quot;任何的限制，都是从自己的内心开始的。&quot;,</span><br><span class="line">	&quot;在一个崇高的目标支持下，不停地工作，即使慢，也一定会获得成功。&quot;,</span><br><span class="line">	&quot;卓越的人一大优点是：在不利与艰难的遭遇里百折不挠。&quot;,</span><br><span class="line">	&quot;伟人与常人最大的差别就在于珍惜时间。&quot;,</span><br><span class="line">	&quot;成功的关键在于我们对失败的反应。&quot;,</span><br><span class="line">	&quot;生命对某些人来说是美丽的，这些人的一生都为某个目标而奋斗。&quot;,</span><br><span class="line">	&quot;即使行动导致错误，却也带来了学习与成长;不行动则是停滞与萎缩。&quot;,</span><br><span class="line">	&quot;顽强的毅力改变可以征服世界上任何一座高峰。&quot;,</span><br><span class="line">	&quot;机遇对于有准备的头脑有特别的亲和力。&quot;,</span><br><span class="line">	&quot;人的生命似洪水在奔流，不遇着岛屿、暗礁，难以激起美丽的浪花。&quot;,</span><br><span class="line">	&quot;要改变命运，首先改变自己。&quot;,</span><br><span class="line">	&quot;我们若已接受最坏的，就再没有什么损失。&quot;,</span><br><span class="line">	&quot;在生活中，我跌倒过。我在嘲笑声中站起来，虽然衣服脏了，但那是暂时的，它可以洗净。&quot;,</span><br><span class="line">	&quot;放弃该放弃的是无奈，放弃不该放弃的是无能;不放弃该放弃的是无知，不放弃不该放弃的是执着。&quot;,</span><br><span class="line">	&quot;人的一生没有一帆风顺的坦途。当你面对失败而优柔寡断，当动摇自信而怨天尤人，当你错失机遇而自暴自弃的时候你是否会思考：我的自信心呢?其实，自信心就在我们的心中。&quot;,</span><br><span class="line">	&quot;失去金钱的人损失甚少，失去健康的人损失极多，失去勇气的人损失一切。&quot;,</span><br><span class="line">	&quot;只要下定决心克服恐惧，便几乎能克服任何恐惧。因为，请记住，除了在脑海中，恐惧无处藏身。&quot;,</span><br><span class="line">	&quot;害怕时，把心思放在必须做的事情上，如果曾经彻底准备，便不会害怕。&quot;,</span><br><span class="line">	&quot;去做你害怕的事，害怕自然就会消失。&quot;,</span><br><span class="line">	&quot;最可怕的敌人，就是没有坚强的信念。&quot;,</span><br><span class="line">	&quot;只要持续地努力，不懈地奋斗，就没有征服不了的东西。&quot;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>空话套话<br>就像英语作文中的” as far as I am concerned “，倒也不是想真想表达自己的啥观点，主要是这句套话它占的字数多，哈哈哈，懂得都懂。</li>
+</ol>
+<p>空话套话，不能完全生搬硬套，更要切合主题，所以在一些地方替换为文章主题更加合适，这里用 x 表示，后期替换为主题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">   &quot;bosh&quot;: [</span><br><span class="line">	&quot;既然如此, &quot;,</span><br><span class="line">	&quot;我们不妨可以这样来想: &quot;,</span><br><span class="line">	&quot;这是不可避免的. &quot;,</span><br><span class="line">	&quot;现在, 解决x的问题, 是非常非常重要的. 所以, &quot;,</span><br><span class="line">	&quot;我们不得不面对一个非常尴尬的事实, 那就是, &quot;,</span><br><span class="line">	&quot;x的发生, 到底需要如何做到, 不x的发生, 又会如何产生. &quot;,</span><br><span class="line">	&quot;而这些并不是完全重要, 更加重要的问题是, &quot;,</span><br><span class="line">	&quot;x, 到底应该如何实现. &quot;,</span><br><span class="line">	&quot;带着这些问题, 我们来审视一下x. &quot;,</span><br><span class="line">	&quot;所谓x, 关键是x需要如何写. &quot;,</span><br><span class="line">	&quot;我们一般认为, 抓住了问题的关键, 其他一切则会迎刃而解.&quot;,</span><br><span class="line">	&quot;问题的关键究竟为何? &quot;,</span><br><span class="line">	&quot;x因何而发生?&quot;,</span><br><span class="line">	&quot;每个人都不得不面对这些问题.  在面对这种问题时, &quot;,</span><br><span class="line">	&quot;一般来讲, 我们都必须务必慎重的考虑考虑. &quot;,</span><br><span class="line">	&quot;要想清楚, x, 到底是一种怎么样的存在. &quot;,</span><br><span class="line">	&quot;了解清楚x到底是一种怎么样的存在, 是解决一切问题的关键.&quot;,</span><br><span class="line">	&quot;就我个人来说, x对我的意义, 不能不说非常重大. &quot;,</span><br><span class="line">	&quot;本人也是经过了深思熟虑,在每个日日夜夜思考这个问题. &quot;,</span><br><span class="line">	&quot;x, 发生了会如何, 不发生又会如何. &quot;,</span><br><span class="line">	&quot;在这种困难的抉择下, 本人思来想去, 寝食难安.&quot;,</span><br><span class="line">	&quot;生活中, 若x出现了, 我们就不得不考虑它出现了的事实. &quot;,</span><br><span class="line">	&quot;这种事实对本人来说意义重大, 相信对这个世界也是有一定意义的.&quot;,</span><br><span class="line">	&quot;我们都知道, 只要有意义, 那么就必须慎重考虑.&quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>起承转合<br>为了避免文章过于“生硬”，可以添加一些句子间衔接的语句。前缀和后缀，一句选择一样即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   &quot;before&quot;: [</span><br><span class="line">	&quot;曾经说过&quot;,</span><br><span class="line">	&quot;曾经提到过&quot;,</span><br><span class="line">	&quot;说过一句富有哲理的话&quot;,</span><br><span class="line">	&quot;曾说过这样一句话&quot;</span><br><span class="line">],</span><br><span class="line">&quot;after&quot;: [</span><br><span class="line">	&quot;这不禁令我深思。&quot;,</span><br><span class="line">	&quot;这启发了我。&quot;,</span><br><span class="line">	&quot;这句话看似简单，但其中的阴郁不禁让人深思。&quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文章主题<br>所需文章主题，可自定义，输入对应主题，即可生成一篇文章。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">主题 = input(&quot;请输入文章主题：&quot;)</span><br></pre></td></tr></table></figure></li>
+<li><p>组装文章结构</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2022/07/22/%E7%8B%97%E5%B1%81%E4%B8%8D%E9%80%9A%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E5%99%A8/" data-id="cl5whmvl4000338ke6y448vv5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-prepare-note" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/13/prepare-note/" class="article-date">
+  <time datetime="2019-11-13T13:37:38.000Z" itemprop="datePublished">2019-11-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/13/prepare-note/">prepareNote</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="用python完成数据准备小工具"><a href="#用python完成数据准备小工具" class="headerlink" title="用python完成数据准备小工具"></a>用python完成数据准备小工具</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>因为平时的测试工作中，数据准备工作内容重复性高、花费时间长、具有一定的共性，所以想开发一款帮助完成数据准备的小工具，以此来提升工作效率。</p>
+<h2 id="一、需求分析"><a href="#一、需求分析" class="headerlink" title="一、需求分析"></a>一、需求分析</h2><p>根据提供的一些字段，对每个进行补位等处理，并将其组合成一条总位数恒定的数据，最终将其保存在DAT文件中。</p>
+<blockquote>
+<p>输入：二维数组，格式一致，行对应一条数据，列对应动态的字段。   </p>
+</blockquote>
+<blockquote>
+<p>输出：DAT文件，其中每条数据各占一行，文件名可定义。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">样例：</span><br><span class="line">输入：[客户号，调前固额，短信码，日期]</span><br><span class="line">输出：十位客户号+,+一位空格+9位调前固额+6位短信码+8位日期，共计40位，末尾用空格补齐</span><br><span class="line">输入：[123456789,5500,SCLD01,20191030]</span><br><span class="line">输出：0123456789, 000005500SCLD0120191030bbbbb 　</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、思路梳理"><a href="#二、思路梳理" class="headerlink" title="二、思路梳理"></a>二、思路梳理</h2><ol>
+<li>定义一个二维数组，用于存放输入数据。</li>
+<li>逐行对数组的第1列元素进行处理，将其转换成10位数字，不足10位前面补0，大于10位报错，并在其尾部补一位逗号及空格。</li>
+<li>逐行对数组的第2列元素进行处理，将其转换成9位数字，不足9位前面补0，大于9位报错。</li>
+<li>逐行对数组的第3列元素进行处理，检查其是否长度为6，否则报错。</li>
+<li>逐行对数组的第4列元素进行处理，检查其长度是否为8，否则报错。</li>
+<li>将处理后的数组进行拼接，末尾用空格自动补齐40位。</li>
+<li>每一行数组生成一条40位的数据，每条数据之间换行。</li>
+<li>将处理好的数据转成DAT文件，命名为test1.DAT。</li>
+</ol>
+<h2 id="三、实现方法"><a href="#三、实现方法" class="headerlink" title="三、实现方法"></a>三、实现方法</h2><ol>
+<li>前补位方法</li>
+</ol>
+<p>该方法用于对输入数据数据进行前面补位的处理，三个参数分别是：需处理的字段、处理后字段的长度、填充字符。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def pad_start(string,length,char,):</span><br><span class="line">    #字符串总长度</span><br><span class="line">    string_length = len(string)</span><br><span class="line">    #无需补位</span><br><span class="line">    if string_length == length:</span><br><span class="line">        return string</span><br><span class="line">    #超出总长度，报错</span><br><span class="line">    elif string_length &gt; length:</span><br><span class="line">        print(&quot;wrong!&quot;)</span><br><span class="line">    #少于总长度，补位8</span><br><span class="line">    else :</span><br><span class="line">        string_out = string </span><br><span class="line">        #计算出需补齐的位数</span><br><span class="line">        for _ in range (length - string_length):</span><br><span class="line">            string_out = char + string_out</span><br><span class="line">        return string_out</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>后补位方法</li>
+</ol>
+<p>该方法用于对输入数据数据进行末尾补位的处理，三个参数分别是：需处理的字段、处理后字段的长度、填充字符。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def pad_end(string,length,char):</span><br><span class="line">    #字符串总长度</span><br><span class="line">    string_length = len(string)</span><br><span class="line">    if string_length == length:</span><br><span class="line">        return string </span><br><span class="line">    elif string_length &gt; length:</span><br><span class="line">        print(&quot;wrong!&quot;)</span><br><span class="line">    else:</span><br><span class="line">        string_out = string </span><br><span class="line">        #计算出需补齐的位数</span><br><span class="line">        for _ in range (length - string_length):</span><br><span class="line">            string_out = string_out + char </span><br><span class="line">        return string_out</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>拼接方法</li>
+</ol>
+<p>利用python的join函数，该函数的功能是将列表中的元素进行拼接。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#将列表各字段拼接成一个字符串</span><br><span class="line">result=&#x27;&#x27;.join(out_list)</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>文件读取</li>
+</ol>
+<p>file对象可以用来做大部分的文件操作，但是目前本人只学习了打开文件及写文件两种方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file = open (&quot;SCL002U.DAT&quot;,&quot;x&quot;)</span><br><span class="line">file.write(main(input_data))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开文件</li>
+</ul>
+<p>file_name：即你需要打开或者新建的文件名 </p>
+<p>access_mode：打开文件的模式，有只读、写入等等 ，我这里用到的参数是x，即新建一个文件，并对其忽悠写入的权限。</p>
+<p>buffering：跟寄存有关，暂未了解更多</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file object = open(file_name [, access_mode][, buffering])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>写文件</li>
+</ul>
+<p>这里用到的是write()方法，该方法可以将任何字符串写在已打开的文件中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file.write()</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、总结回顾"><a href="#四、总结回顾" class="headerlink" title="四、总结回顾"></a>四、总结回顾</h2><p>这个数据准备小工具算是我第一个用python语言完成的小作品，虽然拖延了好几天，但看到DAT文件中的那两行字符串，心中依然是充满了成就感。^_^通过完成这个小工具，一定程度上克服了对敲代码的心里排斥感，也增强了我继续学习的信心和勇气。很难想象两年以前的我为了逃避写代码这件事，做出了现在看来完全错误的决定，当时的我没有直面自己内心真实的勇气，我不知道在做什么，但是我在逃避。</p>
+<p>完成这个小工具的过程，也体现了我自身的很多不足之处。第一点就是拖延，一想到要写代码就觉得焦虑，应该减少对焦虑的感受，要忽略它，然后坐下来开始写；第二点是python语法基础薄弱，很多基本的函数不了解，语法报错较多，需要更多的学习和积累；第三点是对于陌生的知识点，不求甚解，这一点非常不好，缺乏钻研精神，应尝试多去了解一步，敢于提问敢于质疑。</p>
+<p>当然，这个小工具还是存在很多的局限，后期我会尝试做出一些优化。 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/13/prepare-note/" data-id="cl5whmvl4000238keeuybfwz9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Note-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/27/Note-markdown/" class="article-date">
+  <time datetime="2019-02-27T15:20:27.000Z" itemprop="datePublished">2019-02-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/27/Note-markdown/">Note - markdown</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、区块元素"><a href="#一、区块元素" class="headerlink" title="一、区块元素"></a>一、区块元素</h3><h4 id="1-特殊字符自动转换"><a href="#1-特殊字符自动转换" class="headerlink" title="1.特殊字符自动转换"></a>1.特殊字符自动转换</h4><p>在html文件中，有些字符需要进行转换，以下两个需要特别注意：</p>
+<h5 id="Example"><a href="#Example" class="headerlink" title="Example :"></a>Example :</h5><pre><code>‘ &lt; ’ --&gt; ‘ &amp;lt; ’
+
+&quot; 4 &lt; 5&quot; --&gt; &quot;4 &amp;lt; 5&quot;
+</code></pre>
+<blockquote>
+<p>“4 &lt; 5”-&gt;”4 &lt; 5”</p>
+</blockquote>
+<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example :"></a>Example :</h5><pre><code>‘ &amp; ’ --&gt; &#39; &amp;amp; &#39;
+
+&quot;A &amp; T&quot; --&gt; &quot;A &amp;amp T&quot;
+</code></pre>
+<blockquote>
+<p>“A &amp; T”-&gt;”A &amp;amp T”</p>
+</blockquote>
+<h4 id="2-段落与换行"><a href="#2-段落与换行" class="headerlink" title="2.段落与换行"></a>2.段落与换行</h4><p>一个markdown文档是由一个或者多个的文本行组成，它的前后要有一个以上的空行。<br>空格或者制表符皆视为空行，所以普通段落不应该采用空格或者制表符进行缩进。markdown可以使用段内强制换行，只需要在换行处加入两个空格和一个回车即可。</p>
+<h4 id="3-标题"><a href="#3-标题" class="headerlink" title="3.标题"></a>3.标题</h4><p>markdown支持两种标题格式：类 Setext 和类 atx 形式。</p>
+<h5 id="3-1-类-Setext"><a href="#3-1-类-Setext" class="headerlink" title="3.1 类 Setext"></a>3.1 类 Setext</h5><p>由于该种语法格式标题级别有限，实用性低不做详细阐述。</p>
+<h5 id="3-2-类-atx-形式"><a href="#3-2-类-atx-形式" class="headerlink" title="3.2 类 atx 形式"></a>3.2 类 atx 形式</h5><p>对于 markdown 标题的语法格式，我个人更推荐使用类 atx 形式。<br>语法格式：在行首插入 1 到 6 个 # ，对应到标题 1 到 6 阶，注意 # 后需加一个空格。</p>
+<h5 id="Example："><a href="#Example：" class="headerlink" title="Example："></a>Example：</h5><pre><code># 这是 H1
+## 这是 H2
+###### 这是 H6
+</code></pre>
+<blockquote>
+<h1 id="这是-H1"><a href="#这是-H1" class="headerlink" title="这是 H1"></a>这是 H1</h1><h2 id="这是-H2"><a href="#这是-H2" class="headerlink" title="这是 H2"></a>这是 H2</h2><h6 id="这是-H6"><a href="#这是-H6" class="headerlink" title="这是 H6"></a>这是 H6</h6></blockquote>
+<h4 id="4-区块引用"><a href="#4-区块引用" class="headerlink" title="4.区块引用"></a>4.区块引用</h4><p>语法格式：在需要进行引用的区段，每一行的最前面加上 ‘&gt;’ ，或者只在第一行加上 ‘&gt;’。<br>引用还可以嵌套，只要在需要嵌套引用的部分再加上 ‘&gt;’ 即可。</p>
+<h5 id="Example：-1"><a href="#Example：-1" class="headerlink" title="Example："></a>Example：</h5><pre><code> This is the first level of quoting.
+&gt;
+&gt; &gt; This is nested blockquote.
+&gt;
+&gt; Back to the first level.
+</code></pre>
+<p> This is the first level of quoting.</p>
+<blockquote>
+<blockquote>
+<p>This is nested blockquote.</p>
+</blockquote>
+<p>Back to the first level.</p>
+</blockquote>
+<p>“This is nested blockquote.” 这一句就使用了嵌套引用。</p>
+<h4 id="5-列表"><a href="#5-列表" class="headerlink" title="5.列表"></a>5.列表</h4><p>Markdown 支持有序列表和五序列表。</p>
+<h5 id="5-1-无序列表"><a href="#5-1-无序列表" class="headerlink" title="5.1 无序列表"></a>5.1 无序列表</h5><p>无序列表使用星号、加号或是减号作为列表标记：</p>
+<h5 id="Example：-2"><a href="#Example：-2" class="headerlink" title="Example："></a>Example：</h5><pre><code>*   Red   
++   Green 
+-   Blue 
+</code></pre>
+<blockquote>
+<ul>
+<li>Red</li>
+</ul>
+<ul>
+<li>Green</li>
+</ul>
+<ul>
+<li>Blue</li>
+</ul>
+</blockquote>
+<h5 id="5-2-有序列表"><a href="#5-2-有序列表" class="headerlink" title="5.2 有序列表"></a>5.2 有序列表</h5><p>有序列表则使用数字接着一个英文句点：<br><strong>注意!</strong> 可以不在意数字数字的正确性。但是，列表第一项的数字代表了起始值。如果第一项为’1.’，那么该有序列表编号从’1.’开始；如果第一项为’3.’，就从’3.’开始。示例便是从’3.’开始排列。</p>
+<h5 id="Example：-3"><a href="#Example：-3" class="headerlink" title="Example："></a>Example：</h5><pre><code>3.  Bird
+5.  McHale
+4.  Parish
+3.  Cat
+</code></pre>
+<blockquote>
+<ol start="3">
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+<li>Cat</li>
+</ol>
+</blockquote>
+<h4 id="6-代码区块"><a href="#6-代码区块" class="headerlink" title="6.代码区块"></a>6.代码区块</h4><p>通常“和程序相关的写作“或是”标签语言原始码块”我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示，就需要用到代码区块。<br>代码区块语法格式：缩紧4个字符或者1个制表符。</p>
+<h5 id="Example：-4"><a href="#Example：-4" class="headerlink" title="Example："></a>Example：</h5><p>这是一个普通段落：</p>
+<pre><code>这是一个代码区块。
+</code></pre>
+<h4 id="7-分割线"><a href="#7-分割线" class="headerlink" title="7.分割线"></a>7.分割线</h4><p>分割线语法结构：一行中使用三个以上的星号（*）、减号（-）、底线（_）即可形成分隔符，注意行内不能有其他任何字符。</p>
+<pre><code>* * *
+
+***
+
+*****
+
+- - -
+
+---------------------------------------
+</code></pre>
+<blockquote>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+</blockquote>
+<h3 id="二、区段元素"><a href="#二、区段元素" class="headerlink" title="二、区段元素"></a>二、区段元素</h3><h4 id="1-链接"><a href="#1-链接" class="headerlink" title="1.链接"></a>1.链接</h4><p>markdown支持两种方式的链接语法：<strong>行内式</strong>和<strong>参考式</strong>。链接文字都是用[方括号]来进行标记的。</p>
+<h5 id="1-1-行内式"><a href="#1-1-行内式" class="headerlink" title="1.1 行内式"></a>1.1 行内式</h5><p>行内式语法结构，如下所示：<br>其中 Title 表示鼠标 hover 时显示的内容，非必须。</p>
+<pre><code>[方括号](圆括号 + &quot;Title&quot;)
+</code></pre>
+<p>Example:</p>
+<pre><code>This is [an example](http://example.com/ &quot;Title&quot;) inline link.
+</code></pre>
+<blockquote>
+<p>This is <a target="_blank" rel="noopener" href="http://example.com/" title="Title">an example</a> inline link.</p>
+</blockquote>
+<h5 id="1-2-参考式"><a href="#1-2-参考式" class="headerlink" title="1.2 参考式"></a>1.2 参考式</h5><p>行内式语法结构，如下所示。<br>先在文件中记录链接，随后在文件的任意处将其定义出来。</p>
+<pre><code>[方括号][ID]
+[ID]:link + &#39;title&#39;
+</code></pre>
+<p>Example 1:</p>
+<pre><code>This is [an example] [001]
+[001]: http://example.com/  &#39;Optional Title Here&#39;
+</code></pre>
+<blockquote>
+<p>This is [an example] <a target="_blank" rel="noopener" href="http://example.com/" title="Optional Title Here">001</a></p>
+<blockquote>
+</blockquote>
+</blockquote>
+<h4 id="2-强调"><a href="#2-强调" class="headerlink" title="2. 强调"></a>2. 强调</h4><p>用 *&#x2F;_ 标记需要强调的字词，<strong>前后符号需一致</strong>。单个符号表示斜体，双符号表示加粗。</p>
+<h5 id="2-1-斜体"><a href="#2-1-斜体" class="headerlink" title="2.1 斜体"></a>2.1 斜体</h5><pre><code>*single asterisks*
+_single underscores_
+</code></pre>
+<blockquote>
+<p><em>single asterisks</em><br><em>single underscores</em></p>
+</blockquote>
+<h5 id="2-2-加粗"><a href="#2-2-加粗" class="headerlink" title="2.2 加粗"></a>2.2 加粗</h5><pre><code>**double asterisks**
+__double underscores__
+</code></pre>
+<blockquote>
+<p><strong>double asterisks</strong><br><strong>double underscores</strong></p>
+</blockquote>
+<p>如果要在要在文字中插入普通的 *&#x2F;_ ，可以使用反斜线。</p>
+<pre><code>\*this text is surrounded by literal asterisks\*
+</code></pre>
+<blockquote>
+<p>*this text is surrounded by literal asterisks*</p>
+</blockquote>
+<h4 id="3-代码"><a href="#3-代码" class="headerlink" title="3. 代码"></a>3. 代码</h4><p>标记一小段行内代码，可以用反引号将其包起来。</p>
+<pre><code>Use the `printf()` function.
+</code></pre>
+<blockquote>
+<p>Use the <code>printf()</code> function.</p>
+</blockquote>
+<p>如果要在代码内插入反引号，则可以使用多个反引号开始和结束代码段。</p>
+<pre><code>``There is a literal backtick (`) here.``
+</code></pre>
+<blockquote>
+<p><code>There is a literal backtick (`) here.</code></p>
+</blockquote>
+<h4 id="4-图片"><a href="#4-图片" class="headerlink" title="4. 图片"></a>4. 图片</h4><p>Markdown中插入图片和插入链接的语法类似。</p>
+<h5 id="4-1-行内式"><a href="#4-1-行内式" class="headerlink" title="4.1 行内式"></a>4.1 行内式</h5><p>插入图片的语法结构，其中 Title 是可以省略的一项。</p>
+<ul>
+<li><p>!</p>
+</li>
+<li><p>[图片的替代文字]</p>
+</li>
+<li><p>(图片地址 “Title”)</p>
+<p>  <img src="/path/to/img.jpg" alt="Alt text" title="Optional title"></p>
+</li>
+</ul>
+<blockquote>
+<p><img src="/path/to/img.jpg" alt="Alt text" title="Optional title"></p>
+</blockquote>
+<h5 id="4-2-参考式"><a href="#4-2-参考式" class="headerlink" title="4.2 参考式"></a>4.2 参考式</h5><pre><code>![Alt text][id]
+</code></pre>
+<blockquote>
+<p><img src="/url/to/image" alt="Alt text" title="Optional title attribute"></p>
+</blockquote>
+<blockquote>
+</blockquote>
+<p>目前为止，markdown还没有办法设定图片的宽高，如果有需要也可以使用 ‘&lt;img&gt;‘标签</p>
+<h3 id="三、-其他"><a href="#三、-其他" class="headerlink" title="三、 其他"></a>三、 其他</h3><h4 id="1-反斜杠"><a href="#1-反斜杠" class="headerlink" title="1. 反斜杠"></a>1. 反斜杠</h4><p>markdown中可以利用反斜杠来插入一些具有语法含义的符号。</p>
+<pre><code>\*literal asterisks\*
+</code></pre>
+<blockquote>
+<p>*literal asterisks*</p>
+</blockquote>
+<p>以下这些符号支持前面加上反斜杠，以帮助插入普通符号。</p>
+<pre><code>\   反斜线
+`   反引号
+*   星号
+_   底线
+&#123;&#125;  花括号
+[]  方括号
+()  括弧
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   惊叹号
+</code></pre>
+<h4 id="2-自动链接"><a href="#2-自动链接" class="headerlink" title="2. 自动链接"></a>2. 自动链接</h4><p>markdown支持以较为简短的自动连接形式，来处理<strong>网址</strong>和<strong>电子邮箱</strong>。</p>
+<pre><code>&lt;http://example.com/&gt;
+</code></pre>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://example.com/">http://example.com/</a></p>
+</blockquote>
+<pre><code>&lt;address@example.com&gt;
+</code></pre>
+<blockquote>
+<p><a href="mailto:&#x61;&#100;&#x64;&#x72;&#x65;&#x73;&#x73;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#x61;&#100;&#x64;&#x72;&#x65;&#x73;&#x73;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+<h5 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h5><p> Markdown 语法说明 <a target="_blank" rel="noopener" href="http://www.markdown.cn/">http://www.markdown.cn</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/27/Note-markdown/" data-id="cl5whmvkx000138ke9k16eqxa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-How-does-the-browser-work-after-typing-a-URL" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/20/How-does-the-browser-work-after-typing-a-URL/" class="article-date">
+  <time datetime="2019-01-20T13:57:59.000Z" itemprop="datePublished">2019-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/20/How-does-the-browser-work-after-typing-a-URL/">How does the browser work after typing a URL</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>解析域名 - DNS ：<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> -&gt;180.97.33.107</p>
+</li>
+<li><p>查询该IP的端口号：若 DNS 解析出的地址，不包含端口号，则采用协议默认的端口号（http:80;https:443）</p>
+</li>
+<li><p>建立 TCP 连接：</p>
+</li>
+</ol>
+<ul>
+<li>服务器主机：是一台物理意义上的硬件设备，与家用PC类似。</li>
+<li>服务器软件：是一款安装在服务器主机上的服务器管理软件，与 Windows 操作系统类似。</li>
+</ul>
+<ol start="4">
+<li><p>服务器应答请求：依据请求中的路径，寻找该文件。若找到，则将其发送给浏览器；若找不到，则返回 4** 的状态码。</p>
+</li>
+<li><p>关闭 TCP 连接，渲染页面：为节省服务器的资源占用，在此情况下就可以将之前建立的连接关闭。接着，根据不同的服务器，渲染出不同的效果。浏览器兼容性问题就出现在这一步，很多方法在某些特定的浏览器上不支持，渲染页面时就会出现错误，编码时应注意。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/20/How-does-the-browser-work-after-typing-a-URL/" data-id="cl5whmvks000038keed8h5f01" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/07/22/%E7%8B%97%E5%B1%81%E4%B8%8D%E9%80%9A%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E5%99%A8/">狗屁不通文章生成器</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/13/prepare-note/">prepareNote</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/Note-markdown/">Note - markdown</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/How-does-the-browser-work-after-typing-a-URL/">How does the browser work after typing a URL</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
