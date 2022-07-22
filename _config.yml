@@ -3,17 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: plumrx 的博客
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: Plumrx
+language: zh-CN
 timezone: ''
+bio: Be your self
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://plumrx.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -73,8 +74,7 @@ meta_generator: true
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -90,11 +90,11 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: Acetolog
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/plumrx/plumrx.github.io.git
+  repo: git@github.com:plumrx/plumrx.github.io.git
   branch: master
