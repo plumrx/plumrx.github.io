@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>如何使用 hexo 更新博客</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        如何使用 hexo 更新博客
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            周六 七月 23, 2022 03:43 下午
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+
+                
+                <section id="post-body">
+                    <ol>
+<li><p>clone 远端仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/plumrx/plumrx.github.io.git</span><br><span class="line">----------------------------</span><br><span class="line">正克隆到 &#x27;plumrx.github.io&#x27;...</span><br><span class="line">remote: Enumerating objects: 199, done.</span><br><span class="line">remote: Counting objects: 100% (15/15), done.</span><br><span class="line">remote: Compressing objects: 100% (15/15), done.</span><br><span class="line">remote: Total 199 (delta 8), reused 0 (delta 0), pack-reused 184</span><br><span class="line">接收对象中: 100% (199/199), 694.04 KiB | 1.90 MiB/s, 完成.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装 yarn 依赖<br>进入 clone 好的文件目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd plumrx.github.io</span><br><span class="line">yarn install</span><br><span class="line">-------------------------------</span><br><span class="line">yarn install v1.22.10</span><br><span class="line">[1/4] 🔍  Resolving packages...</span><br><span class="line">[2/4] 🚚  Fetching packages...</span><br><span class="line">[3/4] 🔗  Linking dependencies...</span><br><span class="line">[4/4] 🔨  Building fresh packages...</span><br><span class="line">✨  Done in 12.77s.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 hexo</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">yarn hexo s</span><br><span class="line">----------------------------</span><br><span class="line">yarn run v1.22.10</span><br><span class="line">$ /Users/plumrx/projects/github-hexo-blog/plumrx.github.io/node_modules/.bin/hexo s</span><br><span class="line">(node:95871) Warning: Accessing non-existent property &#x27;lineno&#x27; of module exports inside circular dependency</span><br><span class="line">(Use `node --trace-warnings ...` to show where the warning was created)</span><br><span class="line">(node:95871) Warning: Accessing non-existent property &#x27;column&#x27; of module exports inside circular dependency</span><br><span class="line">(node:95871) Warning: Accessing non-existent property &#x27;filename&#x27; of module exports inside circular dependency</span><br><span class="line">(node:95871) Warning: Accessing non-existent property &#x27;lineno&#x27; of module exports inside circular dependency</span><br><span class="line">(node:95871) Warning: Accessing non-existent property &#x27;column&#x27; of module exports inside circular dependency</span><br><span class="line">(node:95871) Warning: Accessing non-existent property &#x27;filename&#x27; of module exports inside circular dependency</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>新建文章<br>可以在其中直接进行编辑。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">yarn hexo new &quot;狗屁不通文章生成器&quot;</span><br><span class="line">-----------------------------</span><br><span class="line">yarn run v1.22.10</span><br><span class="line">$ /Users/plumrx/projects/github-hexo-blog/plumrx.github.io/node_modules/.bin/hexo new 狗屁不通文章生成器</span><br><span class="line">(node:96103) Warning: Accessing non-existent property &#x27;lineno&#x27; of module exports inside circular dependency</span><br><span class="line">(Use `node --trace-warnings ...` to show where the warning was created)</span><br><span class="line">(node:96103) Warning: Accessing non-existent property &#x27;column&#x27; of module exports inside circular dependency</span><br><span class="line">(node:96103) Warning: Accessing non-existent property &#x27;filename&#x27; of module exports inside circular dependency</span><br><span class="line">(node:96103) Warning: Accessing non-existent property &#x27;lineno&#x27; of module exports inside circular dependency</span><br><span class="line">(node:96103) Warning: Accessing non-existent property &#x27;column&#x27; of module exports inside circular dependency</span><br><span class="line">(node:96103) Warning: Accessing non-existent property &#x27;filename&#x27; of module exports inside circular dependency</span><br><span class="line">INFO  Created: ~/projects/github-hexo-blog/plumrx.github.io/source/_posts/狗屁不通文章生成器.md</span><br><span class="line">✨  Done in 1.31s.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询当前 git 状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">位于分支 source</span><br><span class="line">您的分支与上游分支 &#x27;origin/source&#x27; 一致。</span><br><span class="line"></span><br><span class="line">未跟踪的文件:</span><br><span class="line">  （使用 &quot;git add &lt;文件&gt;...&quot; 以包含要提交的内容）</span><br><span class="line">	&quot;source/_posts/\347\213\227\345\261\201\344\270\215\351\200\232\346\226\207\347\253\240\347\224\237\346\210\220\345\231\250.md&quot;</span><br><span class="line"></span><br><span class="line">提交为空，但是存在尚未跟踪的文件（使用 &quot;git add&quot; 建立跟踪） </span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>新增日志文件至 index</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>打包一条 commit</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#x27;新增一篇博客&#x27;</span><br><span class="line">-------------------</span><br><span class="line">[master 9f98b6b] 新增一篇博客</span><br><span class="line"> 1 file changed, 4 insertions(+), 4 deletions(-)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上传代码至远端服务器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br><span class="line">-----------------</span><br><span class="line">枚举对象中: 5, 完成.</span><br><span class="line">对象计数中: 100% (5/5), 完成.</span><br><span class="line">使用 8 个线程进行压缩</span><br><span class="line">压缩对象中: 100% (3/3), 完成.</span><br><span class="line">写入对象中: 100% (3/3), 396 字节 | 396.00 KiB/s, 完成.</span><br><span class="line">总共 3（差异 1），复用 0（差异 0），包复用 0</span><br><span class="line">remote: Resolving deltas: 100% (1/1), completed with 1 local object.</span><br><span class="line">To github.com:plumrx/gou-pi-bu-tong.git</span><br><span class="line">   8310462..9f98b6b  master -&gt; master</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>使用 hexo 编译<br>将 markdown 文件转为 html 文件，，存放在 public&#x2F;index.html 之下.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yarn hexo generate</span><br><span class="line">----------------------</span><br><span class="line">yarn run v1.22.10</span><br><span class="line">$ /Users/plumrx/projects/github-hexo-blog/plumrx.github.io/node_modules/.bin/hexo generate</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Files loaded in 76 ms</span><br><span class="line">INFO  Generated: 2022/07/22/狗屁不通文章生成器/index.html</span><br><span class="line">INFO  1 files generated in 189 ms</span><br><span class="line">✨  Done in 1.06s.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发布 blog<br>发布至远端服务器，git 服务器非实时部署，查看需等待几分钟</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">yarn hexo deploy  </span><br><span class="line">---------------------</span><br><span class="line">yarn run v1.22.10</span><br><span class="line">$ /Users/plumrx/projects/github-hexo-blog/plumrx.github.io/node_modules/.bin/hexo deploy</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend dirs...</span><br><span class="line">[master 9e30395] Site updated: 2022-07-22 23:49:51</span><br><span class="line"> 1 file changed, 68 insertions(+), 21 deletions(-)</span><br><span class="line">枚举对象中: 13, 完成.</span><br><span class="line">对象计数中: 100% (13/13), 完成.</span><br><span class="line">使用 8 个线程进行压缩</span><br><span class="line">压缩对象中: 100% (4/4), 完成.</span><br><span class="line">写入对象中: 100% (7/7), 2.07 KiB | 2.07 MiB/s, 完成.</span><br><span class="line">总共 7（差异 2），复用 0（差异 0），包复用 0</span><br><span class="line">remote: Resolving deltas: 100% (2/2), completed with 2 local objects.</span><br><span class="line">remote: </span><br><span class="line">remote: GitHub found 2 vulnerabilities on plumrx/plumrx.github.io&#x27;s default branch (1 high, 1 moderate). To find out more, visit:</span><br><span class="line">remote:      https://github.com/plumrx/plumrx.github.io/security/dependabot</span><br><span class="line">remote: </span><br><span class="line">To github.com:plumrx/plumrx.github.io.git</span><br><span class="line">   8e75e61..9e30395  HEAD -&gt; master</span><br><span class="line">分支 &#x27;master&#x27; 设置为跟踪来自 &#x27;git@github.com:plumrx/plumrx.github.io.git&#x27; 的远程分支 &#x27;master&#x27;。</span><br><span class="line">INFO  Deploy done: git</span><br><span class="line">✨  Done in 3.83s.</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/">
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/07/22/%E7%8B%97%E5%B1%81%E4%B8%8D%E9%80%9A%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E5%99%A8/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">狗屁不通文章生成器</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>
