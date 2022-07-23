@@ -1,10 +1,9 @@
 ---
-title: 如何更新 hexo 博客
+title: 如何使用 hexo 更新博客
 date: 2022-07-23 15:43:03
 tags:
 ---
 
-# 如何更新 hexo 博客
 1. clone 远端仓库
 ```
 git clone https://github.com/plumrx/plumrx.github.io.git
@@ -68,7 +67,6 @@ INFO  Created: ~/projects/github-hexo-blog/plumrx.github.io/source/_posts/狗屁
 ```
 
 5. 查询当前 git 状态
-
 ```
 git status
 位于分支 source
@@ -83,14 +81,12 @@ git status
 
 
 6. 新增日志文件至 index
-
 ```
 git add .
 ```
 
 
 7. 打包一条 commit
-
 ```
 git commit -m '新增一篇博客'
 -------------------
@@ -99,7 +95,6 @@ git commit -m '新增一篇博客'
 ```
 
 8. 上传代码至远端服务器
-
 ```
 git push
 -----------------
@@ -118,7 +113,6 @@ To github.com:plumrx/gou-pi-bu-tong.git
 
 9. 使用 hexo 编译  
 将 markdown 文件转为 html 文件，，存放在 public/index.html 之下.
-
 ```
 yarn hexo generate
 ----------------------
@@ -134,7 +128,6 @@ INFO  1 files generated in 189 ms
 
 10. 发布 blog  
 发布至远端服务器，git 服务器非实时部署，查看需等待几分钟
-
 ```
 yarn hexo deploy  
 ---------------------
