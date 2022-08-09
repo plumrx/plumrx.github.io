@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>python - 文件 IO 读写</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        python - 文件 IO 读写
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Sun July 24, 2022 02:14 PM
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E4%BB%B6%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">一、文件常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%92%8C%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-text">1. 绝对路径和相对路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E5%BA%94%E7%94%A8%E7%BA%A7%E6%93%8D%E4%BD%9C%E4%B8%89%E9%83%A8%E6%9B%B2"><span class="toc-text">2. 文件应用级操作三部曲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-open-%E5%87%BD%E6%95%B0"><span class="toc-text">3. open()函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-text">4. 文件读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5"><span class="toc-text">5. 文件写入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-seek-%E5%92%8Ctell"><span class="toc-text">6. seek()和tell()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-whith-as-%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6"><span class="toc-text">7. whith as 读写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-fileinput-%E6%A8%A1%E5%9D%97%EF%BC%9A%E9%80%90%E8%A1%8C%E8%AF%BB%E5%8F%96%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-text">8. fileinput 模块：逐行读取多个文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-linecache-%E6%A8%A1%E5%9D%97%EF%BC%9A%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E5%88%B6%E5%AE%9A%E8%A1%8C"><span class="toc-text">9. linecache 模块：读取文件制定行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%AF%BB%E5%8F%96%E5%A4%A7%E6%96%87%E4%BB%B6%EF%BC%88GB%EF%BC%89%E7%BC%96%E7%A0%81%E6%8A%80%E5%B7%A7"><span class="toc-text">二、读取大文件（GB）编码技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81python%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E5%92%8C%E5%A4%84%E7%90%86"><span class="toc-text">三、python异常检测和处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E7%B1%BB%E9%94%99%E8%AF%AF"><span class="toc-text">语法类错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%94%99%E8%AF%AF"><span class="toc-text">运行时错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-text">异常处理</span></a></li></ol></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h2 id="一、文件常用操作"><a href="#一、文件常用操作" class="headerlink" title="一、文件常用操作"></a>一、文件常用操作</h2><h3 id="1-绝对路径和相对路径"><a href="#1-绝对路径和相对路径" class="headerlink" title="1. 绝对路径和相对路径"></a>1. 绝对路径和相对路径</h3><ul>
+<li><p>绝对路径<br>从根文件夹开始，Windows 系统中以盘符（C:\  D:)作为根文件夹，而 OS X 或 Linux 系统中以 \ 作为根文件夹。  </p>
+</li>
+<li><p>相对路径<br>指文件相对于当前工作目录所在的位置。<br>‘.’：当级目录<br>‘..’：上级目录<br>当前目录：\plumrx\test<br>文件目录：\plumrx\test\test1\demo.txt<br>相对路径可表示为：.\test1\demo.txt</p>
+</li>
+</ul>
+<h3 id="2-文件应用级操作三部曲"><a href="#2-文件应用级操作三部曲" class="headerlink" title="2. 文件应用级操作三部曲"></a>2. 文件应用级操作三部曲</h3><p>1.1 open<br>open()函数用于创建或打开指定文件。<br>1.2 读写操作<br>1.3 close  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">f = open(&quot;14-practice.py&quot;)</span><br><span class="line">print(f.read())</span><br><span class="line">f.close()</span><br><span class="line">------------------------------</span><br><span class="line">Users/plumrx/projects/kuangshi/mysql-try/just-for-mysql/bin/python /Users/plumrx/projects/kuangshi/mysql-try/16.py</span><br><span class="line"># # input</span><br><span class="line"># a = input(&quot;enter a number:&quot;)</span><br><span class="line"># b = input(&quot;enrer another number:&quot;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-open-函数"><a href="#3-open-函数" class="headerlink" title="3. open()函数"></a>3. open()函数</h3><p>open()函数用于创建或打开指定文件。 </p>
+<blockquote>
+<p>格式：<br>file &#x3D; open(file_name[, mode&#x3D;’r’[, buffering&#x3D;-1[, encoding &#x3D; None]]])  </p>
+</blockquote>
+<p>除了 file_name 其余为可选参数，具体含义如下：<br>file:要创建的文件对象。<br>file_name:要创建或打开的文件名称，需使用引号括起，使用对应路径。<br>mode:指定文件的打开模式，不填写则默认为 r ，只读。<br>encoding:手动设定打开文件时使用的编码格式。  </p>
+<h3 id="4-文件读取"><a href="#4-文件读取" class="headerlink" title="4. 文件读取"></a>4. 文件读取</h3><ul>
+<li><p>read()<br>逐字读取文件中的内容。  </p>
+<blockquote>
+<p>file.read([size])<br>size 默认为所有内容  </p>
+</blockquote>
+</li>
+<li><p>readline()<br>逐行读取，以 ‘\n’ 作为读取一行的标志  </p>
+<blockquote>
+<p>file.readline([size])<br>size 指定读取每一行时，一次最多读取的字数。   </p>
+</blockquote>
+</li>
+<li><p>readlines()<br>读取所有行，读取结果为一个列表，每一行为其中一个元素。  </p>
+<blockquote>
+<p>file.readlines()</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="5-文件写入"><a href="#5-文件写入" class="headerlink" title="5. 文件写入"></a>5. 文件写入</h3><ul>
+<li>write()<br>想文件中写入指定内容。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">格式：</span><br><span class="line">file.write(string)</span><br><span class="line"></span><br><span class="line">样例：</span><br><span class="line">f = open(&#x27;test.txt&#x27;,&#x27;w&#x27;)</span><br><span class="line">f.write(&#x27;test1\n&#x27;)</span><br><span class="line">f.write(&#x27;test2\n&#x27;)</span><br><span class="line">f.write(&#x27;test3&#x27;)</span><br><span class="line">-----------------</span><br><span class="line">test1</span><br><span class="line">test2</span><br><span class="line">test3</span><br></pre></td></tr></table></figure></li>
+<li>writelines()<br>将字符串列表写入文件中，每个元素之间换行。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">文件复制，将test1.txt -&gt; test2.txt</span><br><span class="line"></span><br><span class="line">f_read = open(&#x27;test.txt&#x27;)</span><br><span class="line">f_write = open(&#x27;test-copy.txt&#x27;, &#x27;w&#x27;)</span><br><span class="line"></span><br><span class="line">f_write.writelines(f_read.readlines())</span><br><span class="line">f_read.close()</span><br><span class="line">f_write.close()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="6-seek-和tell"><a href="#6-seek-和tell" class="headerlink" title="6. seek()和tell()"></a>6. seek()和tell()</h3><ul>
+<li><p>tell()<br>用于判断文件指针当前所处的位置。</p>
+<blockquote>
+<p>file.tell()</p>
+</blockquote>
+</li>
+<li><p>seek()<br>用于移动文件指针到指定位置。</p>
+<blockquote>
+<p>file.seek(offset[,whence])</p>
+</blockquote>
+</li>
+</ul>
+<p>offset:<br>偏移量，可正可负，正数代表向后偏移，负数代表向前<br>whence:<br>0:文件开头<br>1:当前位置<br>2:文件末尾  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 设置当前指针位置为5</span><br><span class="line">f_read.seek(5)</span><br><span class="line"></span><br><span class="line"># 将指针位置放置至文件开头0</span><br><span class="line">f_read.seek(0, 0)</span><br><span class="line"></span><br><span class="line"># 指针当前位置不变</span><br><span class="line">f_read.seek(0, 1)</span><br><span class="line"></span><br><span class="line"># 将指针位置放置至文件末尾</span><br><span class="line">f_read.seek(0, 2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-whith-as-读写文件"><a href="#7-whith-as-读写文件" class="headerlink" title="7. whith as 读写文件"></a>7. whith as 读写文件</h3><p>作用：操作上下文管理器，自动分配且释放资源。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">with 表达式[as target]:</span><br><span class="line">    代码块</span><br><span class="line"></span><br><span class="line">旧方法：</span><br><span class="line">f = open(&#x27;test.txt&#x27;, &#x27;w&#x27;)</span><br><span class="line">f.write(&#x27;test&#x27;)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">新方法：</span><br><span class="line">with open(&#x27;test.txt&#x27;,&#x27;w&#x27;) as f:</span><br><span class="line">    f.write(&#x27;test&#x27;)</span><br></pre></td></tr></table></figure>
+<h3 id="8-fileinput-模块：逐行读取多个文件"><a href="#8-fileinput-模块：逐行读取多个文件" class="headerlink" title="8. fileinput 模块：逐行读取多个文件"></a>8. fileinput 模块：逐行读取多个文件</h3><p>多文件读写的时候，可以查询文件的位置。  </p>
+<ul>
+<li>input 函数  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">--------- 单文件用法 -----------</span><br><span class="line">import fileinput</span><br><span class="line"></span><br><span class="line">for line in fileinput.input(&#x27;test.txt&#x27;):</span><br><span class="line">    print(line, end=&#x27;&#x27;)</span><br><span class="line"></span><br><span class="line">--------------------</span><br><span class="line">test1</span><br><span class="line">test2</span><br><span class="line">test3</span><br><span class="line"></span><br><span class="line">--------- 多文件用法 -----------</span><br><span class="line"></span><br><span class="line">for line in fileinput.input(files=(&#x27;test.txt&#x27;,&#x27;test-copy.txt&#x27;)):</span><br><span class="line">	print(line,end=&#x27;&#x27;)</span><br><span class="line">fileinput.close()</span><br><span class="line"></span><br><span class="line">---------------------</span><br><span class="line">test1</span><br><span class="line">test2</span><br><span class="line">test3TEST1</span><br><span class="line">TEST2</span><br><span class="line">TEST3</span><br><span class="line"></span><br><span class="line">--------- 文件内容替换 &amp; 备份 -----------</span><br><span class="line"></span><br><span class="line">for line in fileinput.input(&#x27;test.txt&#x27;, backup=&#x27;.bak&#x27;, inplace=True):</span><br><span class="line">	print(line.replace(&#x27;te&#x27;, &#x27;TE&#x27;))</span><br><span class="line"></span><br><span class="line">---------------------</span><br><span class="line">TEst1</span><br><span class="line">TEst2</span><br><span class="line">TEst3</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="9-linecache-模块：读取文件制定行"><a href="#9-linecache-模块：读取文件制定行" class="headerlink" title="9. linecache 模块：读取文件制定行"></a>9. linecache 模块：读取文件制定行</h3><p>指定行号即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import linecache</span><br><span class="line">import string</span><br><span class="line"></span><br><span class="line"># 读 string 模块中的第三行</span><br><span class="line">print(linecache.getline(string.__file__, 3))</span><br><span class="line"></span><br><span class="line"># 读取普通文件的第二行</span><br><span class="line">print(linecache.getline(&#x27;test.txt&#x27;,3))</span><br><span class="line"></span><br><span class="line">--------------------</span><br><span class="line">Public module variables:</span><br><span class="line"></span><br><span class="line">TEst2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+<h2 id="二、读取大文件（GB）编码技巧"><a href="#二、读取大文件（GB）编码技巧" class="headerlink" title="二、读取大文件（GB）编码技巧"></a>二、读取大文件（GB）编码技巧</h2><p><strong>问题：open()和read()函数仅适用于小文件的读取。文件过大，会造成内存溢出。</strong>    </p>
+<p><strong>解决办法：反复调用read(size)方法，每次指定读取字数。</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">伪码：</span><br><span class="line">while true:</span><br><span class="line">    block = f.read(1024)</span><br><span class="line">    if not block: #没有内容</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+<p><strong>尝试读取本地500M的大文件</strong></p>
+<ol>
+<li><p>生成一个超过500M的文件，具体方法可以参考：<br><a href="https://plumrx.github.io/2022/07/22/%E7%8B%97%E5%B1%81%E4%B8%8D%E9%80%9A%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E5%99%A8/">https://plumrx.github.io/2022/07/22/狗屁不通文章生成器/</a></p>
+</li>
+<li><p>读取文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">with open(&#x27;狗屁不通文章.txt&#x27;) as file:</span><br><span class="line">	while True:</span><br><span class="line">		block=file.read(1024)</span><br><span class="line">		if not block:</span><br><span class="line">			break</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="三、python异常检测和处理"><a href="#三、python异常检测和处理" class="headerlink" title="三、python异常检测和处理"></a>三、python异常检测和处理</h2><p>异常官方指引文档：<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/exceptions.html#base-classes">https://docs.python.org/3/library/exceptions.html#base-classes</a></p>
+<h3 id="语法类错误"><a href="#语法类错误" class="headerlink" title="语法类错误"></a>语法类错误</h3><ol>
+<li>函数调用语法错误  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print &quot;test&quot;  </span><br><span class="line">-----------------</span><br><span class="line">SyntaxError: Missing parentheses in call to &#x27;print&#x27;. Did you mean print(&quot;test&quot;)?</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="运行时错误"><a href="#运行时错误" class="headerlink" title="运行时错误"></a>运行时错误</h3><p>建立在语法正确的情况下，才会发生运行错误。  </p>
+<ol>
+<li><p>read()函数抛出 UnicodeDecodeError异常<br>原因：目标文件使用的编码格式与open()函数打开该文件使用的编码格式不匹配。<br>解决方案：在调用open()函数时，加上对应编码的参数。  </p>
+</li>
+<li><p>a &#x3D; 1&#x2F;0<br>0作为除数没有意义，所以运行后产生错误。</p>
+</li>
+</ol>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><ol>
+<li><p>try except 异常捕获</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"># 1.1 万能异常捕获</span><br><span class="line">try:</span><br><span class="line">	a = 1</span><br><span class="line">	print(a / 0)</span><br><span class="line">except Exception:</span><br><span class="line">	print(&#x27;error&#x27;)</span><br><span class="line"></span><br><span class="line">---------------------</span><br><span class="line">error</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 1.2 指定异常捕获</span><br><span class="line">将异常的信息存储在变量 e 中</span><br><span class="line">try:</span><br><span class="line">	f = open(&#x27;file_miss&#x27;, &#x27;r&#x27;)</span><br><span class="line">except IOError as e:</span><br><span class="line">	print(&#x27;open exception: %s: %s&#x27; % (e.args, e.strerror))</span><br><span class="line">---------------------</span><br><span class="line">open exception: (2, &#x27;No such file or directory&#x27;): No such file or directory</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 1.3 指定多个异常</span><br><span class="line"># 可以衔接多个 except ，以便区分多种报错类型。</span><br><span class="line">try:</span><br><span class="line">	a = int(input(&#x27;输入被除数：&#x27;))</span><br><span class="line">	b = int(input(&#x27;输入除数：&#x27;))</span><br><span class="line">	c = a / b</span><br><span class="line">	print(&#x27;商：&#x27;, c)</span><br><span class="line">except (ValueError, ArithmeticError) as e:</span><br><span class="line">	print(&#x27;数字格式 or 算术异常&#x27;)</span><br><span class="line">except :</span><br><span class="line">	print(&#x27;other error&#x27;)</span><br><span class="line"></span><br><span class="line">----------------------</span><br><span class="line">输入被除数：1</span><br><span class="line">输入除数：0</span><br><span class="line">数字格式 or 算术异常</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 1.4 异常 &amp; 正常流程的捕获</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">	a = int(input(&#x27;输入被除数：&#x27;))</span><br><span class="line">	b = int(input(&#x27;输入除数：&#x27;))</span><br><span class="line">	c = a / b</span><br><span class="line">	print(&#x27;商：&#x27;, c)</span><br><span class="line">except (ValueError, ArithmeticError) as e:</span><br><span class="line">	print(&#x27;数字格式 or 算术异常&#x27;)</span><br><span class="line">else:</span><br><span class="line">	print(&#x27;everything is OK&#x27;)</span><br><span class="line"></span><br><span class="line">--------------------------</span><br><span class="line">输入被除数：1</span><br><span class="line">输入除数：1</span><br><span class="line">商： 1.0</span><br><span class="line">everything is OK</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>try except finally：资源回收<br>功能：无论 try 块是否发生异常，都要进入 finally 语句，并执行其中代码。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	a = int(input(&#x27;输入被除数：&#x27;))</span><br><span class="line">	b = int(input(&#x27;输入除数：&#x27;))</span><br><span class="line">	c = a / b</span><br><span class="line">	print(&#x27;商：&#x27;, c)</span><br><span class="line">except (ValueError, ArithmeticError) as e:</span><br><span class="line">	print(&#x27;数字格式 or 算术异常&#x27;)</span><br><span class="line">else:</span><br><span class="line">	print(&#x27;everything is OK&#x27;)</span><br><span class="line">finally:</span><br><span class="line">	print(&#x27;over&#x27;)</span><br><span class="line"></span><br><span class="line">-------------------------</span><br><span class="line">输入被除数：0</span><br><span class="line">输入除数：9</span><br><span class="line">商： 0.0</span><br><span class="line">everything is OK</span><br><span class="line">over</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>raise：主动触发异常<br>功能：一旦执行 raise 语句，raise 后面的语句将不能执行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	a = input(&#x27;please input a number:&#x27;)</span><br><span class="line">	if (not a.isdigit()):</span><br><span class="line">		raise ValueError(&#x27;a must be a number&#x27;)</span><br><span class="line">except ValueError as e:</span><br><span class="line">	# repr() 函数将对象转化为供解释器读取的形式</span><br><span class="line">	# repr() 方法可以将读取到的格式字符，比如换行符、制表符，转化为其相应的转义字符。</span><br><span class="line">	print(&#x27;create error&#x27;, repr(e))</span><br><span class="line">	pass</span><br><span class="line"></span><br><span class="line">-----------------------------</span><br><span class="line">please input a number:a</span><br><span class="line">create error ValueError(&#x27;a must be a number&#x27;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sys.exc_info()：获取异常信息 - 一般详细  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">	print(1 / 0)</span><br><span class="line">except Exception as e:</span><br><span class="line">	print(e)</span><br><span class="line">	print(sys.exc_info())</span><br><span class="line"></span><br><span class="line">--------------------------</span><br><span class="line">division by zero</span><br><span class="line">(&lt;class &#x27;ZeroDivisionError&#x27;&gt;, ZeroDivisionError(&#x27;division by zero&#x27;), &lt;traceback object at 0x10b889f00&gt;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>traceback 模块：获取异常信息 - 非常详细</p>
+</li>
+</ol>
+<p>直接将异常全部打印出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import traceback</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">	print(1/0)</span><br><span class="line">except Exception as e:</span><br><span class="line">	print(e)</span><br><span class="line">	print(traceback.print_exc())</span><br><span class="line"></span><br><span class="line">----------------------------</span><br><span class="line">division by zero</span><br><span class="line">None</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/Users/plumrx/projects/kuangshi/RF52/lesson16/open_file.py&quot;, line 106, in &lt;module&gt;</span><br><span class="line">    print(1/0)</span><br><span class="line">ZeroDivisionError: division by zero</span><br></pre></td></tr></table></figure>
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/">
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/07/23/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-Hexo-%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">如何使用 hexo 更新博客</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>
