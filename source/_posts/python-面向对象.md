@@ -146,8 +146,119 @@ setattr(A,'attack',test)
 
 
 ### 8. 面向对象三大特性  
-* 8.1 封装
+#### 8.1 封装  
+将内容封装到某处，从某处调用被封装的内容。
 
-* 8.2 继承
+```
+class person(object):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-* 8.3 多态
+	#封装
+    def printperson(self):
+        print(self.name, self.age)
+
+
+person1=person('name1','18')
+person2=person('name2','19')
+
+#调用
+person2.printperson()
+
+---------------------
+name2 19
+```
+
+
+#### 8.2 继承  
+* 优点：子可继承父的内容及特性。  
+* 继承语法：class 派生类名（基类名）
+
+```
+c=child()
+c.childMethod()
+c.parentMethod()
+
+---------------------
+child init
+child method
+parent method
+```
+仅调用了子类的构造方法，若需调用父类构造方法，可采用以下几种方法：  
+1. 在子类中，不定义构造方法。
+2. 在子类的构造函数中，直接调用父类的构造函数。```parent.__init__(self)```
+3. 在子类中，调用super方法。```super(child,self).__init__()```  
+
+pyhton 支持多继承，一个子类继承多个父类，寻找方法为：深度优先、广度优先（python3）。  
+
+语法：class SubClassName(ParentClass1[,ParentClass2])
+
+* 广度优先  
+>例：A为新式类，B和C均继承A，D继承B和C。
+对象D的属性查询顺序为：  
+D -> B -> C -> A
+
+
+* 子类重写父类方法  
+在子类中，使用与父类中相同变量或方法名，可以重新定义父类中的属性和方法。
+
+```
+class A():
+    def hello(self):
+        print('class a')
+
+class B(A):
+    pass
+
+class C(A):
+    # 重写了hello方法
+    def hello(self):
+        print('class c')
+
+a=A()
+b=B()
+c=C()
+a.hello()
+b.hello()
+c.hello()
+
+----------------
+class a
+class a
+class c
+```
+
+
+
+#### 8.3 多态  
+* 多态：不同的子类对象，调用相同的父类方法，产生不同的结果。“龙生九子，各有不同”
+
+我自己理解，类似于父类中方法重写。
+```
+class People(Animals):
+    def talk(self):
+        print('People are talking')
+
+class Cat(Animals):
+    def talk(self):
+        print('Cat is maow')
+
+class Dog(Animals):
+    def talk(self):
+        print('Dog is wang')
+
+person=People()
+cat1=Cat()
+dog1=Dog()
+
+# 直接调用
+person.talk()
+cat1.talk()
+dog1.talk()
+
+-----------------------
+People are talking
+Cat is maow
+Dog is wang
+```
