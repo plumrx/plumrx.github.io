@@ -262,3 +262,93 @@ People are talking
 Cat is maow
 Dog is wang
 ```
+
+
+
+### 9.类变量、成员变量（实例变量）、局部变量
+* 类变量：可以由类名直接调用，也可以由对象来调用  
+
+* 成员变量：可以由类的对象来调用，成员变量定义在构造函数内部，一定是以self.的形式给出的，因为self的含义就是代表实例对象。
+
+区别：类变量的调用方式比成员变量多一种，即类直接调用。
+
+```
+class TestClass(object):
+    num = 0  # 类变量
+
+    def __init__(self, x, y):
+        self.x = x  # 实例变量（成员变量），允许实例调用，不允许类调用
+        self.y = y
+        self.fuc(self.x, self.y)
+
+    def add(self):
+        total = 2
+        self.vara = 3  # 未在构造函数中进行初始化，所以为类变量
+        self.varb = 4
+        result = (self.x + self.y) * total
+        return result
+
+    def fuc(self, a, b):
+        self.varc = 100  # 成员变量，他们在成员函数func()中定义，但是在构造函数中调用了该函数
+        self.vard = 200
+        return a + b
+
+
+object_a = TestClass(10, 20)
+print(object_a.num)  # 通过实例调用
+print(TestClass.num)  # 通过类名调用
+print(object_a.x, object_a.y)  # 实例变量仅允许实例调用
+print(object_a.varc, object_a.vard)
+
+------------------------------
+0
+0
+10 20
+100 200
+```
+
+
+### 10.类中的私有方法和属性  
+
+* 私有属性：```__private_attrs``` 两个下划线开头，声明该属性为私有，不能在类的外部被使用或者访问。在类内部的方法中使用时 ```self.__private_attrs```。  
+
+* 私有方法：```__private_method``` 两个下划线开头，声明该方法为私有方法，不能在类的外部调用。在类的内部调用```self.__private_method```。
+
+
+```
+class TestClass(object):
+    public_var = 'hello world'
+    __private_name = 'plumrx'
+
+    def display_var(self):
+        print('print public var:%s' % self.public_var)
+        print('print private name:%s' % self.__private_name)
+        print(self.__private_fun())
+
+    def __private_fun(self):
+        return ('execute private func:%s'%self.public_var)
+
+object_var=TestClass()
+print(object_var.public_var)
+print(object_var.__private_fun())
+
+# 私有化属性访问技巧
+# 对象._类名+私有属性
+print(object_var._TestClass__private_name)
+---------------------------------
+hello world
+
+Traceback (most recent call last):
+  File "/Users/plumrx/projects/kuangshi/RF52/lesson18/class18.py", line 179, in <module>
+    print(object_var.__private_fun())
+AttributeError: 'TestClass' object has no attribute '__private_fun'
+
+plumrx
+```
+
+> 1. 如何在python中将变量或方法转为私有？  
+    变量名或方法名前加两个下划线
+> 2. 如何在类外部调用私有属性或方法?  
+    对象._类名+私有属性名/方法名  
+    ```object_var._TestClass__private_name```
+
