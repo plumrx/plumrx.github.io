@@ -511,3 +511,22 @@ plumrx
 * 解决问题：系统提供的异常类型不能满足开发需求，可以创建自己的异常。
 
 * 用法：异常类继承自 Exception 类，可以间接或直接继承。大多数的自定义异常的名字，以‘Error’结尾，尽量跟标准的异常明明保持一样。
+
+* 实践
+```
+# 继承基类
+class MyError(Exception):
+    def __init__(self,msg):
+        self.msg=msg
+
+    def __str__(self):
+        return self.msg
+
+try:
+    raise MyError('错误类型')
+except MyError as e:
+    print('My exception occured',e.msg)
+
+------------------------
+My exception occured 错误类型
+```
