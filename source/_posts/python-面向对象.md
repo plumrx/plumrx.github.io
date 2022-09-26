@@ -352,3 +352,162 @@ plumrx
     对象._类名+私有属性名/方法名  
     ```object_var._TestClass__private_name```
 
+
+
+### 11.类的三种方法  
+
+#### 11.1 实例方法  
+
+* 定义：第一个参数必须为实例对象，一般约定为 self ，通过它来传递实例或类的属性和方法。
+* 调用方式：只能由实例对象调用。
+
+* 语法形式  
+```
+class TestClass(object):
+
+    def instance_method(self):
+        print('实例方法')
+```
+
+* 实践
+```
+class Person:
+    def __init__(self, name, gender):
+        self.name = name  # 实例变量，不允许类调用
+        self.gender = gender
+
+    def get_name(self):
+        return self.name  # 实例方法，需要实例化才能使用
+
+    def get_gender(self):
+        return self.gender
+
+    def get_name(plumrx):
+        return plumrx.name
+
+
+# 调用实例方法一
+print(Person('plumrx', '女').get_name())
+print(Person('plumrx', '女').get_gender())
+
+# 调用实例方法二
+student = Person('mrx', '女')  # 实例化
+print(student.get_name())
+print(student.get_gender())
+
+--------------------------------
+plumrx
+女
+mrx
+女
+```
+
+#### 11.2 静态方法
+* 定义：使用装饰器@staticmethod。参数随意，但是方法体中不能使用类或实例的任何属性和方法。
+
+* 调用方式：类和实例对象都可以调用。
+
+* 语法形式 
+```
+class TestClass(object):
+
+    @staticmethod
+    def staticmethod():
+        print('静态方法‘)
+```
+
+* 实践
+```
+class Person:
+
+    count=0
+    location='China'
+
+    def __init__(self,name,gender):
+        self.name=name
+        self.gender=gender
+        Person.count+=1
+
+    def get_name(self):
+        return self.name
+
+    @staticmethod
+    def get_location():
+        return Person.location
+
+    @staticmethod
+    def show_time():
+        return time.strftime('%Y-%m-%d %H:%M:%S',time.localtime())
+
+# 类名调用
+print(Person.get_location())
+# 实例调用
+student=Person('plumrx','女')
+print(student.get_location())
+print(student.show_time())
+
+--------------------------
+China
+China
+2022-09-26 23:41:34
+```
+
+* 用途：主要用于存放逻辑性代码，归属于类但是跟类本身关联性不大。
+
+#### 11.3 类方法  
+* 定义：使用装饰器@classmethod。第一个参数必须是当前类对象，一般约定为 cls ，通过它来传递类的属性和方法（不能传实例的属性和方法）；
+
+* 调用方式：类和实例对象都可以调用。  
+
+* 语法形式 
+```
+class TestClass(object):
+
+    @classmethod
+    def class_method(cls):
+        print('类方法‘)
+```
+
+* 实践
+```
+class Person:
+    count = 0  # 类变量
+
+    def __init__(self, name, gender):
+        self.name = name  # 实例变量，不允许类调用
+        self.gender = gender
+        Person.count += 1
+
+    def get_name(self):
+        return self.name  # 实例方法，需要实例化才能使用
+
+    @classmethod  # 加装饰器才能标识为类方法
+    def get_instance_count(cls):
+        return Person.count
+
+    @classmethod
+    def create_a_instance(cls):
+        print('create instance')
+        return Person('plumrx','女')#类方法里虽然不可以使用实例变量，但是可以创建实例。
+
+print(Person.get_instance_count())#用类调用
+print(Person.create_a_instance().get_name())
+
+# 用对象调用
+student=Person('plumrx','女')
+print(student.get_instance_count())
+
+--------------------------
+0
+create instance
+plumrx
+2
+
+```
+* 区别：一个是单纯的类名调用，不需要初始化；另一个需要初始化。
+
+
+### 12.python 自定义异常类
+* 解决问题：系统提供的异常类型不能满足开发需求，可以创建自己的异常。
+
+* 用法：异常类继承自 Exception 类，可以间接或直接继承。大多数的自定义异常的名字，以‘Error’结尾，尽量跟标准的异常明明保持一样。
