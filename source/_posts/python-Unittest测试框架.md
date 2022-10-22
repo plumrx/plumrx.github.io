@@ -95,17 +95,224 @@ if __name__ == '__main__':
     unittest.main(verbosity=2)
 ```
 
-## 用例执行顺序
+## 四、用例执行顺序，组装测试用例
 unittest 默认根据 ASCII 码，0-9，A-Z，a-z。  
 
-### 修改测试用例执行顺序
+### 修改用例执行顺序，添加执行集
 1. 修改测试用例方法名，前标序号
-2. 饮用测试集，按引入顺序执行
+> test_001_***
 
-## 断言
+2. 引用测试集，按引入顺序执行  
+```
+# 测试套件的使用
+if __name__=='__main__':
+    # 构造测试集
+    suite = unittest.TestSuite()
 
-## 命令行执行用例  
+    # 将测试用例加入测试集
+    # 方法一:
+    suite.addTest(TestCalculator('test_add'))
+
+    # 方法二：将用例编入列表，逐一添加
+    tests = [
+        TestCalculator('test_add'),
+        TestCalculator('test_minus'),
+        TestCalculator('test_multip'),
+        TestCalculator('test_divide')
+    ]
+    suite.addTest(tests)
+    
+    # 执行测试集合
+    runner=unittest.TextTestRunner(verbosity=2)
+    runner.run(suite)
+```   
+
+3. TestLoader.loadTestsFromTestCase 加载多个类  
+使用最多，可以一次加载某个类下面的所有测试用例，也支持加载多个类。  
+
+```
+import unittest
+from test_24_02 import TestCalculator
+from test_24_02_02 import TestCalculator2
+
+if __name__ == '__main__':
+    suite1 = unittest.TestLoader().loadTestsFromTestCase(TestCalculator)
+    suite2 = unittest.TestLoader().loadTestsFromTestCase(TestCalculator2)
+
+    suite = unittest.TestSuite([suite1, suite2])
+
+    runner = unittest.TextTestRunner(verbosity=2)
+    runner.run(suite)
+```
+
+4. TestLoader.discover 匹配目录下的用例  
+若目录下存在两个测试用例，Test_Myclass.py & Test_Myclass2.py ，使用 Testloader()，该类相对简便。  
+```
+import os
+import unittest
+
+if __name_ == '__main__':
+    # 实例化测试套件
+    suite = unittest.TestSuite()
+    # 1.实例化 TestLoader 对象
+    # 2.使用discover 去找一个目录下的所有测试用例
+    loader = unittest.TestLoader()
+    # 3.使用 addTests 将找到的测试用例放在测试套件下
+    # os.getcwd()=获取当前目录
+    # 默认搜索路径，当前目录下，以 test 开头的测试文件
+    suite.addTests(loader.discover(os.getcwd()))
+
+    # 方法二：指定目录
+    test_dir = './test'
+    suite = unittest.defaultTestLoader.discover(test_dir, pattern='test_*.py')
+   
+   runner=unittest.TextTestRunner()
+   runner.run(suite)
+```
+
+
+## 五、将测试结果输入到文本
+声明test runner时需要增加一个参数，stream=f
+```
+    with open('unittest_report.txt', 'w') as f:
+        runner = unittest.TextTestRunner(stream=f, verbosity=2)
+        runner.run(suite)
+```
+
+# 六、setUp() tearDown()
+可以在所有case执行前准备一次环境，并在所有case执行结束手再清理环境。  
+```
+    @classmethod
+    def setUpClass(cls) :
+        print('仅测试套件前执行一次')
+
+    @classmethod
+    def tearDownClass(cls) :
+        print('仅测试套件结束后执行一次')
+```
+
+## 七、跳过某个case  
+
+### skip 装饰器  
+1. @unittest.skip(reason):无条件跳过装饰的测试，并说明跳过测试的原因。  
+```
+    @unittest.skip('不执行')
+    def test_add(self):
+        # 加断言
+        self.assertEqual(self.result.add(),12,'加法错误！')
+
+--------------------------
+Skipped: 不执行
+```
+
+2. @unittest.skipif(reason):条件为真时，跳过装饰的测试，并说明跳过的原因。  
+```
+    @unittest.skipIf(3 > 2, '3>2 不执行')
+    def test_add(self):
+        # 加断言
+        self.assertEqual(self.result.add(), 12, '加法错误！')
+----------------------------------
+Skipped: 3>2 不执行
+```
+
+
+3. @unittest.skipUnless(reason):条件为假时，跳过装饰的测试，并说明原因。  
+```
+    @unittest.skipUnless(sys.platform.startswith('linux'),'require Linux')
+    def test_add(self):
+        # 加断言
+        self.assertEqual(self.result.add(), 12, '加法错误！')
+
+----------------------------------
+Skipped: require Linux
+```
+4. @unittest.expectedFailure():测试标记失败。
+
+### TestCase.skipTest()方法
+```
+    def test_add(self):
+        # 加断言
+        self.skipTest('无需执行')
+        self.assertEqual(self.result.add(), 12, '加法错误！')
+---------------------------------
+Skipped: 无需执行
+```
+
+
+## 八、断言  
+1. assertEqual(a,b,[msg='失败打印信息'])  
+断言a,b是否相等，相等用例通过。  
+
+2. assertNotEqual(a,b,[msg='失败打印信息'])  
+断言a,b是否相等，不想等测试通过。  
+
+3. assertTrue(x,[msg='失败打印信息'])  
+断言x是否为True，是True则用例通过。 
+
+4. assertFalse(x,[msg='失败打印信息'])  
+断言x是否为False，是False则用例通过。  
+
+5. assertIs(a,b,[msg='失败打印信息'])  
+断言a是否是b，是则用例通过。  
+
+6. assertNotIs(a,b,[msg='失败打印信息'])  
+断言a是否不是b，不是则用例通过。  
+
+7. assertIsNone(x,[msg='失败打印信息'])  
+断言x是否为None，是None则用例通过。  
+
+8. assertIsNotNone(x,[msg='失败打印信息'])  
+断言x是否为None，不是None则用例通过。 
+
+9. assertIn(a,b,[msg='失败打印信息'])  
+断言a是否在b中，在b中则用例通过。  
+
+10. assertNotIn(a,b,[msg='失败打印信息'])  
+断言a是否在b中，不在b中则用例通过。  
+
+11. assertIsInstance(a,b,[msg='失败打印信息']) 
+断言a是b的一个实例，是则用例通过。  
+
+12. assertNotIsInstance(a,b,[msg='失败打印信息']) 
+断言a是b的一个实例，不是则用例通过。
+
+
+## 九、命令行执行用例  
+
+### 用例自动（递归）发现：
+1. 默认当前目录下所有符合 test*,py 的测试用例
+```
+python -m unittest
+python -m unittest discover
+```
+
+2. 通过 -s 参数指定要自动发现的目录，-p 参数指定用例文件的名称模式
+```
+python -m unittest discover -s project_directory -p "test_*.py"
+```
+
+3. 通过位置参数指定自动发现的目录和用例文件的名称模式
+```
+python -m unittest discover project_directory "test_*.py"
+```
+
+### 执行指定用例
+1. 指定测试模块
+```
+python -m unnittest test_module1 test_module2
+```
+
+2. 指定测试类
+```
+python -m unittest test_module.TestClass
+```
+
+3. 指定测试方法
+```
 python -m unittest 模块名.类名.方法名（用例）
 ```
-python -m unittest 004-***.TestCalculator.test_add
+
+4. 指定测试文件的路径（python3）
+```
+python -m unittest tests/test_something.py
 ```
