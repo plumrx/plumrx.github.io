@@ -316,3 +316,134 @@ python -m unittest 模块名.类名.方法名（用例）
 ```
 python -m unittest tests/test_something.py
 ```
+
+
+
+## 十、参数化和数据驱动  
+### 1.背景  
+实际项目中，测试数据应统一管理，避免硬编码的情况，所以参数化、数据驱动的方式设计测试用例脚本会更佳合理安全。  
+
+### 2.定义  
+参数化测试是一种“数据驱动”测试，同方法测试不同参数，以覆盖所有可能的预期分支。测试数据与测试行为分离，被放入文件、数据库或者外部介质中，再由测试程序读取。  
+
+
+### 3.参数化库
+python 标准库中的 unittest 不支持参数化测试，可以使用：ddt、 parameterized.  
+
+#### 3.1 ddt数据驱动设计模式  
+* 数据驱动思想：数据和用例分离，通过外部数据去生成测试用例。
+
+* 安装
+> pip3 install ddt
+
+* 实践一  
+导包更加详细
+```
+import unittest
+from ddt import ddt, data, unpack
+
+# 加装饰器，与以下的装饰器，写法固定
+@ddt
+class MyTest(unittest.TestCase):
+    # 声明参数，以元祖或列表的形式，每条数据对应一条用例
+    @data((3, 1), (1, 0), (1.2, 1.0))
+    @unpack
+    def test_values(self, first, second):
+        print(first, second)
+        self.assertTrue(first > second)
+```
+
+* 实践二  
+导包更加笼统
+```
+import ddt
+import unittest
+
+
+@ddt.ddt
+class MyTest(unittest.TestCase):
+    #列表或元祖
+    @ddt.data([1, 2, 3, 6])
+    @ddt.unpack
+    def test_add(self, t1, t2, t3, excp):
+        sum = t1 + t2 + t3
+        self.assertEqual(sum, excp)
+```
+
+
+* 实践三  
+用文件存储测试数据
+```
+--------data_003.json--------
+[
+  "1||2||3",
+  "3||2||5",
+  "3||8||11"
+]
+
+---------test_003.py----------
+@ddt.ddt
+class MyTest(unittest.TestCase):
+
+    # 数据以外部文件形式存储
+    @ddt.file_data('data_003.json')
+    @ddt.unpack
+    def test_sum(self, value):
+        # 数据读取，分离
+        a, b, sum = value.split('||')
+        print(a, b, sum)
+        result = int(a) + int(b)
+        self.assertEqual(result, int(sum))
+```
+
+
+#### 3.2 parameterized 参数化驱动  
+
+* 特点：不适用于数据存储于外部文件。
+
+* 安装
+> pip3 install parameterized
+
+* 实践一  
+parameterized 参数化，仅需要一个装饰器，相比 ddt 更加简洁。
+```
+import unittest
+from parameterized import parameterized
+
+
+class MyTest(unittest.TestCase):
+    @parameterized.expand([(3, 1), (1, 10)])
+    def test_values(self, first, second):
+        print(first,second)
+        self.assertTrue(first > second)
+```
+
+
+* 实践二  
+参数化参数：列表套元祖
+```
+import unittest
+from parameterized import parameterized
+
+
+class MyTest(unittest.TestCase):
+
+    @parameterized.expand([('plumrx', '123'), ('miumiu', '321')])
+    def test_params(self, name, pwd):
+        print('name=%s,pwd=%s' % (name, pwd))
+```
+
+
+
+#### 3.3 将测试数据批量存放在 Excel  
+1. xlrd  
+可读取 Excel 文件，支持xls,xlsx格式。  
+2. xlwt  
+可生成 Excel 文件，仅支持 xls 文件。
+3. openpyxl  
+同时支持读写文件，主要适用于 xlsx 文件。
+
+
+
+
+## 十一、Mock接口
