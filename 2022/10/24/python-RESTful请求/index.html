@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>python- RESTful请求</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        python- RESTful请求
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Mon October 24, 2022 07:05 PM
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RESTful"><span class="toc-text">RESTful</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-URI-URL-URN"><span class="toc-text">1. URI \ URL \ URN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTTP-%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4"><span class="toc-text">2. HTTP 请求时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-params-%E4%B8%8E-data-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">2.1 params 与 data 的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-params-%E4%BB%A5%E5%8F%82%E6%95%B0%E5%BD%A2%E5%BC%8F%E4%BC%A0%E5%85%A5"><span class="toc-text">2.1.1  params 以参数形式传入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-data%E4%BB%A5%E5%8F%82%E6%95%B0%E5%BD%A2%E5%BC%8F%E4%BC%A0%E5%85%A5"><span class="toc-text">2.1.2 data以参数形式传入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-text">绝对路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="toc-text">相对路径</span></a></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h1 id="RESTful"><a href="#RESTful" class="headerlink" title="RESTful"></a>RESTful</h1><h2 id="1-URI-URL-URN"><a href="#1-URI-URL-URN" class="headerlink" title="1. URI \ URL \ URN"></a>1. URI \ URL \ URN</h2><p>定义：RESTful是基于 http 协议，定义的一种规约。</p>
+<ul>
+<li>URI 统一资源标志符</li>
+</ul>
+<p>抽象的改变，用唯一的属性确认唯一的资源，那么该属性可称为 URI 。</p>
+<ul>
+<li>URL 统一资源定位符</li>
+</ul>
+<p>通过某个地址，找到某个资源</p>
+<ul>
+<li>URN 统一资源名称<blockquote>
+<p>URI &#x3D; URL + URN</p>
+</blockquote>
+</li>
+</ul>
+<p>常用于前后端分离项目</p>
+<h2 id="2-HTTP-请求时间"><a href="#2-HTTP-请求时间" class="headerlink" title="2. HTTP 请求时间"></a>2. HTTP 请求时间</h2><p>公共方法放在 common 路径之下；<br>文件命名规则：协议 + 方法  </p>
+<blockquote>
+<p>http_request.py</p>
+</blockquote>
+<p>类命名规则：协议 + 方法，驼峰</p>
+<blockquote>
+<p>HttpRequest</p>
+</blockquote>
+<h3 id="2-1-params-与-data-的区别"><a href="#2-1-params-与-data-的区别" class="headerlink" title="2.1 params 与 data 的区别"></a>2.1 params 与 data 的区别</h3><p>requests模块发送请求有data、params两种鞋带参数的方法，其中params常用在get请求中，data常用在post请求中。  </p>
+<h4 id="2-1-1-params-以参数形式传入"><a href="#2-1-1-params-以参数形式传入" class="headerlink" title="2.1.1  params 以参数形式传入"></a>2.1.1  params 以参数形式传入</h4><p>传入的参数会出现在url后，以参数形式直接发起请求。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;&#x27;name&#x27;:&#x27;plumrx&#x27;&#125;</span><br><span class="line">response = requests.get(url, params=params, verify=False)</span><br><span class="line">print(response.text)</span><br><span class="line">-----------------------</span><br><span class="line">&quot;url&quot;: &quot;https://httpbin.testing-studio.com/anything?name=plumrx&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-2-data以参数形式传入"><a href="#2-1-2-data以参数形式传入" class="headerlink" title="2.1.2 data以参数形式传入"></a>2.1.2 data以参数形式传入</h4><p>传入参数会出现在 form 表单中。与上面相比，区别在与参数存放的位置不同。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;&#x27;name&#x27;:&#x27;plumrx&#x27;&#125;</span><br><span class="line">response = requests.get(url, data=payload, verify=False)</span><br><span class="line">print(response.text)</span><br><span class="line">--------------------------</span><br><span class="line">&quot;form&quot;: &#123;</span><br><span class="line">    &quot;name&quot;: &quot;plumrx&quot;</span><br><span class="line">  &#125;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">#### 2.1.3 data 以 json 的形式传入（最常用）  </span><br><span class="line">会以字符串的形式，出现在json字符串中。</span><br></pre></td></tr></table></figure>
+<p>payload &#x3D; {‘name’:’plumrx’}<br>response&#x3D;requests.post(url,data&#x3D;json.dumps(payload),verify&#x3D;False)<br>print(response.text)</p>
+<hr>
+<p>“json”: {<br>    “name”: “plumrx”<br>  },</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 2.1.4 json 以参数的形式传入  </span><br></pre></td></tr></table></figure>
+<p>payload &#x3D; {‘name’:’plumrx’}<br>response&#x3D;requests.post(url,json&#x3D;payload,verify&#x3D;False)<br>print(response.text)</p>
+<hr>
+<p>“json”: {<br>    “name”: “plumrx”<br>  }, </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 2.2 疑难杂症  </span><br><span class="line">Q：在执行纯代码案例时，遇到“empty suite”该怎么办？  </span><br><span class="line">原因：执行脚本时，默认使用了pytest框架，未发现符合要求的用例，故执行集为空。  </span><br><span class="line">解决办法：进入pycharm的setting-python integrated tools-Testing，将Deafault test runner 修改为Unittests。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 3.为自己的测试框架封装请求  </span><br><span class="line">请求方法都属于公共组建，故放置在 common 路径之下。  </span><br><span class="line">文件及类命名规则：建议 协议+请求方法</span><br><span class="line">&gt;http_request.py  </span><br><span class="line">&gt;class HttpRequests</span><br><span class="line"></span><br><span class="line">### 3.1 构造函数  </span><br><span class="line">主要功能：初始化，创建 session。  </span><br><span class="line">包含：地址、方法和请求头(定制)</span><br></pre></td></tr></table></figure>
+<p>def <strong>init</strong>(self,url):<br>    self.url&#x3D;url<br>    self.req&#x3D;requests.session()<br>    self.header&#x3D;{‘User-Agent’:’***’}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 3.2 封装 get \ post \ put \ delete 请求  </span><br><span class="line">要尽可能覆盖所有场景，作为公共方法，入参要齐全，尽可能覆盖所有场景。  </span><br><span class="line"></span><br><span class="line">#### 3.2.1 get 请求</span><br></pre></td></tr></table></figure>
+<p>import requests</p>
+<p>class HttpRequests(object):</p>
+<pre><code># 封装自己的 get 请求，获取资源
+def get(self, uri=&#39;&#39;, params=&#39;&#39;, data=&#39;&#39;, headers=None, cookie=None):
+    url = self.url + uri
+    respose = self.req.get(url, params=params, data=data, headers=headers, cookie=cookie)
+    return respose
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 3.2.2 post 请求  </span><br></pre></td></tr></table></figure>
+<pre><code>def post(self,uri=&#39;&#39;,params=&#39;&#39;,data=&#39;&#39;,headers=None,cookies=None):
+    url = self.url + uri
+    response = self.req.post(url,params=params,data=data,headers=headers,cookies=cookies)
+    return response
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 3.2.3 put 请求  </span><br></pre></td></tr></table></figure>
+<pre><code>def put(self,uri=&#39;&#39;,params=&#39;&#39;,data=&#39;&#39;,headers=None,cookies=None):
+    url=self.url+uri
+    response = self.req.put(url,params=params,data=data,headers=headers,cookies=cookies)
+    return response
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 3.2.4 delete 请求 </span><br></pre></td></tr></table></figure>
+<pre><code>def delete(self,rui=&#39;&#39;,params=&#39;&#39;,data=&#39;&#39;,headers=None,cookies=None):
+    url=self.url+uri
+    response = self.req.delete(url,params=params,data=data,headers=headers,cookies=cookies)
+    return response
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 4. 实战演练 1.14.18</span><br><span class="line">接口地址：https://httpbin.testing-studio.com/</span><br><span class="line">1. 导入自己封装的类  </span><br><span class="line">*命名规则：协议+方法（驼峰）*</span><br></pre></td></tr></table></figure>
+<h1 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h1><p>form test_project.common.http_requests import HttpRequests</p>
+<h1 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h1><p>from ..common.https_requests import HttpsRequests</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 定义 URL</span><br></pre></td></tr></table></figure>
+<p>url_index&#x3D;’<a target="_blank" rel="noopener" href="https://httpbin.testing-studio.com/&#39;">https://httpbin.testing-studio.com/&#39;</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 调用接口</span><br></pre></td></tr></table></figure>
+<p>http &#x3D; HttpRequests(url_index)<br>response &#x3D; http.get()<br>print(‘Response 内容：’ +  response.text)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">相当于封装postman send。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 3 多接口实战</span><br><span class="line">1. 初始化：定义 url 和调用方法</span><br></pre></td></tr></table></figure>
+<p>@classmethod<br>def setUpClass(cls) -&gt; None:<br>    cls.url &#x3D; ‘***’<br>    cls.http &#x3D; HttpRequests(cls.url)</p>
+<p>&#96;&#96;&#96;</p>
+<ol start="2">
+<li><p>访问首页<br>def test_001_index(self):<br> response &#x3D; TestBattal.http.get()<br> self.assertEqual(response.status_code,200,’请求返回非 200’)</p>
+</li>
+<li><p>登录<br>def</p>
+</li>
+</ol>
+
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/11/02/postman-%E8%A7%A3%E9%94%81%E6%9B%B4%E5%A4%9A%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF/">
+                    
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
+                        </svg>
+                        <span class="al_text_ellipsis al_post_nav_desc">postman-解锁更多使用姿势</span>
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/10/12/python-Unittest%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">python- Unittest测试框架.md</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>

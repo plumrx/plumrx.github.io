@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>Charles-抓包工具</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        Charles-抓包工具
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Mon November 7, 2022 09:55 PM
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7-Charles"><span class="toc-text">抓包工具 - Charles</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%89%B9%E7%82%B9"><span class="toc-text">1. 特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E5%9C%B0%E5%9D%80"><span class="toc-text">2. 安装地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">3. 相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85"><span class="toc-text">3.1 证书安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-SSL-Proxying-%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-text">3.2 SSL Proxying 代理配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-PC-%E6%8A%93%E5%8C%85"><span class="toc-text">3.3 PC 抓包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E9%85%8D%E7%BD%AE"><span class="toc-text">3.4 手机抓包配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#PC%E9%85%8D%E7%BD%AE"><span class="toc-text">PC配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E6%9C%BA%E9%85%8D%E7%BD%AE"><span class="toc-text">手机配置</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h1 id="抓包工具-Charles"><a href="#抓包工具-Charles" class="headerlink" title="抓包工具 - Charles"></a>抓包工具 - Charles</h1><h2 id="1-特点"><a href="#1-特点" class="headerlink" title="1. 特点"></a>1. 特点</h2><ol>
+<li>方便，界面友好；  </li>
+<li>跨平台支持 Linux、Windows 和 Mac 操作系统；  </li>
+<li>该工具只有30天免费试用期限，试用期间隔30mins就会闪退，后续需要付费使用。</li>
+</ol>
+<h2 id="2-安装地址"><a href="#2-安装地址" class="headerlink" title="2. 安装地址"></a>2. 安装地址</h2><p><a target="_blank" rel="noopener" href="http://www.charlesproxy.com/">http://www.charlesproxy.com</a></p>
+<h2 id="3-相关配置"><a href="#3-相关配置" class="headerlink" title="3. 相关配置"></a>3. 相关配置</h2><h3 id="3-1-证书安装"><a href="#3-1-证书安装" class="headerlink" title="3.1 证书安装"></a>3.1 证书安装</h3><ol>
+<li>路径：Help -&gt; SSl proaxying -&gt; Install Charles Root Certificate；</li>
+<li>单击“安装证书”，单击“下一步”；</li>
+<li>选择“将所有证书放入下列存储”，单击“浏览”；选择“受信任的根证书颁发机构”，点击“确定”。</li>
+</ol>
+<h3 id="3-2-SSL-Proxying-代理配置"><a href="#3-2-SSL-Proxying-代理配置" class="headerlink" title="3.2 SSL Proxying 代理配置"></a>3.2 SSL Proxying 代理配置</h3><ol>
+<li>路径：Proxying -&gt; SSL Proxying Setting -&gt; SSL Proxying 选项卡；</li>
+<li>选择”Enable SSL Proxying“，单击”add“按钮；</li>
+<li>Host:* ;</li>
+<li>Port:443</li>
+</ol>
+<h3 id="3-3-PC-抓包"><a href="#3-3-PC-抓包" class="headerlink" title="3.3 PC 抓包"></a>3.3 PC 抓包</h3><p>Charles 只支持抓取 HTTP 和 HTTPS 请求。Request 代码是请求的参数，选择 Response 查看服务器响应报文。</p>
+<h3 id="3-4-手机抓包配置"><a href="#3-4-手机抓包配置" class="headerlink" title="3.4 手机抓包配置"></a>3.4 手机抓包配置</h3><h4 id="PC配置"><a href="#PC配置" class="headerlink" title="PC配置"></a>PC配置</h4><ol>
+<li>路径：Proxying -&gt; Proxying Setting ；</li>
+<li>Port：8888</li>
+<li>勾选“Enable  transparent HTTP proxying”</li>
+</ol>
+<h4 id="手机配置"><a href="#手机配置" class="headerlink" title="手机配置"></a>手机配置</h4><ol>
+<li>获取计算机IP；</li>
+<li>路径：WI-FI设置 -&gt; HTTP 代理，切换为手动模式；</li>
+<li>服务器：计算机IP；</li>
+<li>端口：8888；</li>
+<li>设置完，PC 弹出“Connection from …“，点击”allow“；</li>
+</ol>
+
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/">
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/11/02/postman-%E8%A7%A3%E9%94%81%E6%9B%B4%E5%A4%9A%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">postman-解锁更多使用姿势</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>

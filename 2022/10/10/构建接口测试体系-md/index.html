@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>构建接口测试体系.md</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        构建接口测试体系.md
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Mon October 10, 2022 05:59 PM
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB%E6%80%9D%E7%BB%B4"><span class="toc-text">构建接口测试体系思维</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%B3%E9%94%AE%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-text">一、关键知识点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E8%A7%81%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E5%9C%BA%E6%99%AF"><span class="toc-text">二、常见接口测试场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E8%B7%B5%E6%A0%B7%E4%BE%8B"><span class="toc-text">三、实践样例</span></a></li></ol></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h1 id="构建接口测试体系思维"><a href="#构建接口测试体系思维" class="headerlink" title="构建接口测试体系思维"></a>构建接口测试体系思维</h1><h2 id="一、关键知识点"><a href="#一、关键知识点" class="headerlink" title="一、关键知识点"></a>一、关键知识点</h2><ol>
+<li><p>Q：互联网产品的测试策略和传统软件产品的测试策略有何不同？<br>A：通常，互联网产品全量回归不能超过4小时。引入并发执行机制，从测试策略上找到突破口。传统偏向于金字塔模型，互联网偏向于棱形模型。  </p>
+</li>
+<li><p>Q：接口是什么，接口测试是什么、测什么、如何测？</p>
+</li>
+</ol>
+<ul>
+<li>接口的本质就是契约，约定输入输出。根据服务对象不同，可分为内部、外部接口。  </li>
+<li>模拟调用方，通过接口通信来检测北侧接口的正确性和容错性。</li>
+<li>准备测试数据；发起被测 api 的请求；验证返回结果。</li>
+</ul>
+<ol start="3">
+<li>Q：没有接口文档怎么办？</li>
+</ol>
+<ul>
+<li>工具辅助<br>抓包工具：Fiddler   Charles</li>
+<li>分析问题<br>关注响应头，响应体</li>
+<li>询问疑惑<br>参数的含义及来源、参数的作用域、返回值含义</li>
+<li>业务流程多接口串行分析</li>
+</ul>
+<ol start="4">
+<li>Q：测试尽早介入可以做什么？<br>A：流程上，相关评审参与；接口测试先行。</li>
+</ol>
+<h2 id="二、常见接口测试场景"><a href="#二、常见接口测试场景" class="headerlink" title="二、常见接口测试场景"></a>二、常见接口测试场景</h2><ol>
+<li>被测业务由多个 API 调用协作完成？</li>
+</ol>
+<ul>
+<li>打乱调用顺序；</li>
+</ul>
+<ol start="2">
+<li>API 依赖第三方？</li>
+</ol>
+<ul>
+<li>mock第三方接口；</li>
+</ul>
+<ol start="3">
+<li>异步 API 的测试？</li>
+</ol>
+<ul>
+<li>异步调用是否成功，通过后台线程检查；</li>
+<li>验证业务逻辑是否正确，访问请求消息存储位置；</li>
+</ul>
+<h2 id="三、实践样例"><a href="#三、实践样例" class="headerlink" title="三、实践样例"></a>三、实践样例</h2><ol>
+<li>明确被测系统<br>地址：<a target="_blank" rel="noopener" href="https://github.com/zhoujinjian/Battle">https://github.com/zhoujinjian/Battle</a><br>主要业务逻辑：通过接口模拟两个角色决斗，最后得到输赢结果。进入系统后，选择武器，选择敌人</li>
+</ol>
+<ul>
+<li><p>安装教程：</p>
+<blockquote>
+<p>pip3 install bottle<br>pip3 install beaker</p>
+</blockquote>
+</li>
+<li><p>系统运行方法：</p>
+<blockquote>
+<p>python <strong>init</strong>.py</p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li><p>开始接口测试：单接口<br>验证每一个接口都正确性和健壮性，可使用工具 postman。</p>
+</li>
+<li><p>业务流程接口测试<br>保障通过多个接口的串联操作，可以完成原来需求中提出的业务逻辑。</p>
+</li>
+<li><p>自动化测试<br>接口测试和持续集成结合起来。postman可以借助 Newman工具持续集成。</p>
+</li>
+</ol>
+
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/10/12/python-Unittest%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/">
+                    
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
+                        </svg>
+                        <span class="al_text_ellipsis al_post_nav_desc">python- Unittest测试框架.md</span>
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/09/27/python-%E8%A3%85%E9%A5%B0%E5%99%A8%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">python-装饰器、迭代器、生成器</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>

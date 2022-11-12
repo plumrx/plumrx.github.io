@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>python-装饰器、迭代器、生成器</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        python-装饰器、迭代器、生成器
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            周二 九月 27, 2022 10:45 晚上
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-%E8%A3%85%E9%A5%B0%E5%99%A8%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">python-装饰器、迭代器、生成器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81python-%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="toc-text">一、python 装饰器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-python%E9%97%AD%E5%8C%85"><span class="toc-text">1.python闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%97%A5%E5%B8%B8%E5%BC%80%E5%8F%91%E9%9C%80%E6%B1%82"><span class="toc-text">2.日常开发需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-python%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="toc-text">3.python装饰器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E7%AE%80%E5%8D%95%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8%E7%A4%BA%E4%BE%8B"><span class="toc-text">3.1 简单的装饰器示例</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#w1-x3D-w1-f1-x3D-inner"><span class="toc-text">@w1&#x3D;w1(f1)&#x3D;inner</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5-property%E8%A3%85%E9%A5%B0%E5%99%A8%E7%A4%BA%E4%BE%8B-1-55-59"><span class="toc-text">3.5 @property装饰器示例  1.55.59</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81python-%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">二、python 迭代器、生成器</span></a></li></ol></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h1 id="python-装饰器、迭代器、生成器"><a href="#python-装饰器、迭代器、生成器" class="headerlink" title="python-装饰器、迭代器、生成器"></a>python-装饰器、迭代器、生成器</h1><blockquote>
+<ol>
+<li>闭包、装饰器的用途、作用？<br>闭包用途：方便使用装饰器的一种语法。</li>
+<li>python 装饰器的用法和原理？</li>
+<li>python 可迭代对象、迭代器？</li>
+<li>python 迭代器用法？</li>
+<li>python 生成器的用途和用法？</li>
+</ol>
+</blockquote>
+<h2 id="一、python-装饰器"><a href="#一、python-装饰器" class="headerlink" title="一、python 装饰器"></a>一、python 装饰器</h2><h3 id="1-python闭包"><a href="#1-python闭包" class="headerlink" title="1.python闭包"></a>1.python闭包</h3><ul>
+<li><p>定义：可理解为特殊函数，两个函数的嵌套，分别称为内函数、外函数，外函数返回值是内涵数的引用。</p>
+</li>
+<li><p>格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def out_func(parm):</span><br><span class="line">    def inner_func(parm):</span><br><span class="line">        print(&#x27;inner func exe&#x27;,parm)</span><br><span class="line">    return inner_func</span><br></pre></td></tr></table></figure></li>
+<li><p>实践1 - 不带参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def print_msg():</span><br><span class="line">    msg = &quot;hello world&quot;</span><br><span class="line"></span><br><span class="line">    def printer():</span><br><span class="line">        print(msg)</span><br><span class="line"></span><br><span class="line">    return printer</span><br><span class="line"></span><br><span class="line">prt=print_msg()</span><br><span class="line">prt()</span><br><span class="line"></span><br><span class="line">-------------------</span><br><span class="line">hello world</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实践2 - 带参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def func(a,b):</span><br><span class="line">    def line(c):</span><br><span class="line">        return a*b-c</span><br><span class="line"></span><br><span class="line">    return line</span><br><span class="line"></span><br><span class="line">f=func(2,3)</span><br><span class="line">print(f(5))</span><br><span class="line"></span><br><span class="line">---------------</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实践3 - 内函数修改外函数值</p>
+</li>
+</ul>
+<p><code>nonlocal a</code><br>在内嵌函数直接引用外部参数时，需要 <code>nonlocal</code> 关键字进行声明。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">def func(a, b):</span><br><span class="line">    def line(c):</span><br><span class="line">        nonlocal a</span><br><span class="line">        print(a)</span><br><span class="line">        a = 3</span><br><span class="line">        print(a)</span><br><span class="line">        return a * c - b</span><br><span class="line"></span><br><span class="line">    return line</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f = func(2,3)</span><br><span class="line">print(f(5))</span><br><span class="line"></span><br><span class="line">---------------------</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="2-日常开发需求"><a href="#2-日常开发需求" class="headerlink" title="2.日常开发需求"></a>2.日常开发需求</h3><p>需求：func_a是新功能，需要增加其日志信息，如：运行时间</p>
+<ul>
+<li><p>方案演进1<br>每个函数中增加调用logging，缺点：函数多了会冗余。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">logging.basicConfig(format=&#x27;%(asctime)s-%(levelname)s:%(message)s&#x27;,</span><br><span class="line">                    level=logging.DEBUG)</span><br><span class="line"></span><br><span class="line">def func_a():</span><br><span class="line">    print(&#x27;this is func a&#x27;)</span><br><span class="line">    logging.info(&#x27;A is running&#x27;)</span><br><span class="line"></span><br><span class="line">func_a()</span><br><span class="line"></span><br><span class="line">---------------------------------</span><br><span class="line">2022-09-28 00:30:07,056-INFO:A is running</span><br><span class="line">this is func a</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>方案演进2<br>将需要增加log的函数以参数的形式传进来，包成一个新的函数。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def use_logging(func):</span><br><span class="line">    logging.info(&#x27;%s is running&#x27;%func.__name__)</span><br><span class="line">    func()</span><br><span class="line"></span><br><span class="line">def func_a():</span><br><span class="line">    print(&#x27;this is func a&#x27;)</span><br><span class="line"></span><br><span class="line">use_logging(func_a)</span><br><span class="line"></span><br><span class="line">-----------------------------------</span><br><span class="line">this is func a</span><br><span class="line">2022-10-08 10:35:20,696-INFO:func_a is running</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-python装饰器"><a href="#3-python装饰器" class="headerlink" title="3.python装饰器"></a>3.python装饰器</h3><ul>
+<li>作用：不修改已有函数源代码，不修改已有函数的调用方式，为已经存在的对象添加额外的功能。</li>
+<li>本质：闭包函数</li>
+</ul>
+<h4 id="3-1-简单的装饰器示例"><a href="#3-1-简单的装饰器示例" class="headerlink" title="3.1 简单的装饰器示例"></a>3.1 简单的装饰器示例</h4><p>以上方法都不够方便优雅，装饰器可以很好地解决该问题。不改变函数的调用，对原有的功能进行增强。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">logging.basicConfig(format=&#x27;%(asctime)s-%(levelname)s:%(message)s&#x27;,</span><br><span class="line">                    level=logging.DEBUG)</span><br><span class="line"></span><br><span class="line">def use_logging(func):</span><br><span class="line"></span><br><span class="line">    def wrapper():</span><br><span class="line">        logging.info(&#x27;%s is running&#x27; % func.__name__)</span><br><span class="line">        # 把fun_a 当作参数传递进来，执行func()=执行fun_a()</span><br><span class="line">        return func()</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">def fun_a():</span><br><span class="line">    print(&#x27;this is fun_a&#x27;)</span><br><span class="line"></span><br><span class="line"># 因为装饰器 use_logging(fun_a) 返回的时函数对象 wrapper，这条语句相当于  fun_a = wrapper</span><br><span class="line">fun_a = use_logging(fun_a)</span><br><span class="line">fun_a()</span><br><span class="line"></span><br><span class="line">---------------------------------</span><br><span class="line">2022-10-08 10:54:09,265-INFO:fun_a is running</span><br><span class="line">this is fun_a</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 3.2 装饰器语法糖  </span><br><span class="line">* 语法：@ + 装饰器函数</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>def use_logging(func):</p>
+<pre><code>def wrapper():
+    logging.info(&#39;%s is running&#39; % func.__name__)
+    # 把fun_a 当作参数传递进来，执行func()=执行fun_a()
+    return func()
+return wrapper
+</code></pre>
+<p>@ use_logging<br>def fun_a():<br>    print(‘this is fun_a’)</p>
+<p>fun_a()</p>
+<hr>
+<p>2022-10-08 11:18:14,596-INFO:fun_a is running<br>this is fun_a</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 执行原理</span><br></pre></td></tr></table></figure>
+<p>def w1(func):<br>    def inner():<br>        # 验证1<br>        # 验证2<br>        print(‘inner’)<br>        return func()<br>    return inner</p>
+<h1 id="w1-x3D-w1-f1-x3D-inner"><a href="#w1-x3D-w1-f1-x3D-inner" class="headerlink" title="@w1&#x3D;w1(f1)&#x3D;inner"></a>@w1&#x3D;w1(f1)&#x3D;inner</h1><p>@w1<br>def fun_a():<br>    print(‘this is fun_a’)</p>
+<p>fun_a()</p>
+<hr>
+<p>inner<br>this is fun_a</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 3.3 类装饰器  </span><br><span class="line">* 优点：灵活度更大、高内聚、封装性。  </span><br><span class="line">方法前后加下划线，变为魔法函数。此处必须使用 \__call__ 方法。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>class TestClass(object):<br>    def <strong>init</strong>(self,func):<br>        self._func&#x3D;func</p>
+<pre><code>def __call__(self):
+    print(&#39;class decorator running&#39;)
+    self._func()
+    print(&#39;class decorater ending&#39;)
+</code></pre>
+<p>@TestClass<br>def fun_a():<br>    print(‘this is fun_a’)</p>
+<p>fun_a()</p>
+<hr>
+<p>class decorator running<br>this is fun_a<br>class decorater ending</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* \__foo__:一种约定,Python内部的名字,用来区别其他用户自定义的命名,以防冲突.</span><br><span class="line"></span><br><span class="line">* _foo:一种约定,用来指定变量私有.程序员用来指定私有变量的一种方式.</span><br><span class="line"></span><br><span class="line">* __foo:这个有真正的意义:解析器用_classname__foo来代替这个名字,以区别和其他类相同的命名.</span><br><span class="line"></span><br><span class="line">#### 3.4 functools 装饰器</span><br><span class="line">* 作用：保留原有函数的名称和原有属性。  </span><br><span class="line"></span><br><span class="line">* 实例一：未用functools 的 wrap 装饰器,fun_a函数名称已改变。  </span><br></pre></td></tr></table></figure>
+<p>def use_print(func):<br>    def with_logging(*args, **kwargs):<br>        print(‘Calling decorated function…’)<br>        return func(*args, **kwargs)</p>
+<pre><code>return with_logging
+</code></pre>
+<p>@use_print<br>def fun_a(x):<br>    print(‘this is func_a’)<br>    return x + x * x</p>
+<p>print(fun_a.<strong>name</strong>, fun_a.<strong>doc</strong>)</p>
+<hr>
+<p>with_logging None</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 实例二：采用functools 的 wrap 装饰器,fun_a函数名称未改变。在装饰器函数前加@wraps装饰器。  </span><br></pre></td></tr></table></figure>
+<p>from functools import wraps</p>
+<p>def use_print(func):<br>    @wraps(func)<br>    def with_logging(*args, **kwargs):<br>        print(‘Calling decorated function…’)<br>        return func(*args, **kwargs)</p>
+<pre><code>return with_logging
+</code></pre>
+<p>@use_print<br>def fun_a(x):<br>    print(‘this is func_a’)<br>    return x + x * x</p>
+<p>print(fun_a.<strong>name</strong>, fun_a.<strong>doc</strong>)</p>
+<hr>
+<p>fun_a None</p>
+<p>&#96;&#96;&#96;</p>
+<h4 id="3-5-property装饰器示例-1-55-59"><a href="#3-5-property装饰器示例-1-55-59" class="headerlink" title="3.5 @property装饰器示例  1.55.59"></a>3.5 @property装饰器示例  1.55.59</h4><ul>
+<li>原理：@property 装饰器将方法转换为相同名称的只读属性。</li>
+<li>作用：可以用该装饰器来创建只读属性，可以与所定义的属性配合使用，防止属性被修改。</li>
+</ul>
+<h2 id="二、python-迭代器、生成器"><a href="#二、python-迭代器、生成器" class="headerlink" title="二、python 迭代器、生成器"></a>二、python 迭代器、生成器</h2>
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/10/10/%E6%9E%84%E5%BB%BA%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB-md/">
+                    
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
+                        </svg>
+                        <span class="al_text_ellipsis al_post_nav_desc">构建接口测试体系.md</span>
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/08/09/python-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">python-面向对象</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>

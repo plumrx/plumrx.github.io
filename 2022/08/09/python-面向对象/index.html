@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>python-面向对象</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        python-面向对象
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            周二 八月 9, 2022 04:28 下午
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#OOP-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="toc-text">OOP:面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B-amp-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-text">1.面向过程 &amp; 面向对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">2.类和对象的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-text">3.创建类和对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%96%B9%E6%B3%95%E5%92%8C%E5%87%BD%E6%95%B0"><span class="toc-text">4.方法和函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%B7%BB%E5%8A%A0%E5%92%8C%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="toc-text">5.添加和获取对象属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%88%A9%E7%94%A8-hasattr%E3%80%81getattr%E3%80%81setattr-%E8%8E%B7%E5%8F%96%E6%88%96%E6%B7%BB%E5%8A%A0%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="toc-text">6.利用 hasattr、getattr、setattr 获取或添加对象属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="toc-text">7. 构造函数和析构函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-text">8. 面向对象三大特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1-%E5%B0%81%E8%A3%85"><span class="toc-text">8.1 封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-%E7%BB%A7%E6%89%BF"><span class="toc-text">8.2 继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-%E5%A4%9A%E6%80%81"><span class="toc-text">8.3 多态</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E7%B1%BB%E5%8F%98%E9%87%8F%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%EF%BC%88%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%EF%BC%89%E3%80%81%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="toc-text">9.类变量、成员变量（实例变量）、局部变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E7%B1%BB%E4%B8%AD%E7%9A%84%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7"><span class="toc-text">10.类中的私有方法和属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E7%B1%BB%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-text">11.类的三种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11-1-%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="toc-text">11.1 实例方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-2-%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-text">11.2 静态方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-3-%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="toc-text">11.3 类方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-python-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-text">12.python 自定义异常类</span></a></li></ol></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h2 id="OOP-面向对象编程"><a href="#OOP-面向对象编程" class="headerlink" title="OOP:面向对象编程"></a>OOP:面向对象编程</h2><h3 id="1-面向过程-amp-面向对象"><a href="#1-面向过程-amp-面向对象" class="headerlink" title="1.面向过程 &amp; 面向对象"></a>1.面向过程 &amp; 面向对象</h3><ul>
+<li>面向过程编程：<br>根据业务逻辑从上往下，将需要用到的功能封装到函数中。着重开发的过程和步骤，C语言</li>
+<li>面向对象编程：<br>关注结果，Java、C++</li>
+</ul>
+<h3 id="2-类和对象的特点"><a href="#2-类和对象的特点" class="headerlink" title="2.类和对象的特点"></a>2.类和对象的特点</h3><ul>
+<li>对象：面向对象编程的核心。对象则为实体飞机。  </li>
+<li>类：为了将具有共同特征和行为的一组对象抽象定义。相当于造飞机的图纸，由类名、属性和行为组成。</li>
+</ul>
+<h3 id="3-创建类和对象"><a href="#3-创建类和对象" class="headerlink" title="3.创建类和对象"></a>3.创建类和对象</h3><ul>
+<li><p>经典类<br>类名：驼峰</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class ClassNameA:</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新式类<br>onject是所有类的父类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class ClassNameB(object):</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建对象<br>对象即类的实例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A1=ClassNameA()</span><br><span class="line">A2=ClassNameB()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-方法和函数"><a href="#4-方法和函数" class="headerlink" title="4.方法和函数"></a>4.方法和函数</h3><p>在类中定义的函数即为方法，如：move()&amp;attack()</p>
+<h3 id="5-添加和获取对象属性"><a href="#5-添加和获取对象属性" class="headerlink" title="5.添加和获取对象属性"></a>5.添加和获取对象属性</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 创建类</span><br><span class="line">class Hero(object):</span><br><span class="line"></span><br><span class="line">	def move(self):</span><br><span class="line">		print(&#x27;移动&#x27;)</span><br><span class="line"></span><br><span class="line">	def attack(self):</span><br><span class="line">		print(&#x27;攻击&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">A1 = Hero()</span><br><span class="line"></span><br><span class="line"># 添加属性</span><br><span class="line">A1.name = &#x27;plumrx&#x27;</span><br><span class="line">A1.score = 8848</span><br><span class="line"></span><br><span class="line">print(&#x27;%s 的分数为 %s&#x27; % (A1.name, A1.score))</span><br><span class="line"></span><br><span class="line">A1.move()</span><br><span class="line">A1.attack()</span><br><span class="line"></span><br><span class="line">------------------------</span><br><span class="line">plumrx 的分数为 8848</span><br><span class="line">移动</span><br><span class="line">攻击</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-利用-hasattr、getattr、setattr-获取或添加对象属性"><a href="#6-利用-hasattr、getattr、setattr-获取或添加对象属性" class="headerlink" title="6.利用 hasattr、getattr、setattr 获取或添加对象属性"></a>6.利用 hasattr、getattr、setattr 获取或添加对象属性</h3><ul>
+<li>hasattr(object,name)<br>检查对象是否包含名为 name 的属性和方法。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Hero(object):</span><br><span class="line">	def __init__(self,name):</span><br><span class="line">		self.name =name</span><br><span class="line"></span><br><span class="line">	def info(self):</span><br><span class="line">		print(&#x27;Hero %s 的生命值:%d&#x27; %(self.name))</span><br><span class="line"></span><br><span class="line">A=Hero(&#x27;plumrx&#x27;)</span><br><span class="line"># 检查 A 中是否包含 name 属性</span><br><span class="line">print(hasattr(A,&#x27;name&#x27;))</span><br><span class="line"># 检查 A 中是否包含 age 属性</span><br><span class="line">print(hasattr(A,&#x27;age&#x27;))</span><br><span class="line"></span><br><span class="line">----------------------------</span><br><span class="line">True</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>getattr(object,name[,default])<br>获取对象中名为 name 的属性的属性值。 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">t = getattr(A, &quot;name &quot;)</span><br><span class="line">print(t)</span><br><span class="line">s = getattr(A, &#x27;score&#x27;, &#x27;no score&#x27;)</span><br><span class="line">print(s)</span><br><span class="line"></span><br><span class="line"># 获取方法：打印函数地址</span><br><span class="line">f = getattr(A, &quot;info&quot;)</span><br><span class="line"></span><br><span class="line"># 调用方法</span><br><span class="line">f()</span><br><span class="line">--------------</span><br><span class="line">plumrx</span><br><span class="line">no score</span><br><span class="line"></span><br><span class="line">&lt;bound method Hero.info of &lt;__main__.Hero object at 0x104f0ff40&gt;&gt;</span><br><span class="line"></span><br><span class="line">Hero plumrx </span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>setattr(object,name,value)<br>将对象的 name 属性设为 value。若属性不存在，则先创建。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">print(A.hp)</span><br><span class="line">setattr(A,&#x27;hp&#x27;,2000)</span><br><span class="line">print(A.hp)</span><br><span class="line"></span><br><span class="line"># 将外部函数 test 添加到对象 A 中，并命名为 attack</span><br><span class="line">setattr(A,&#x27;attack&#x27;,test)</span><br><span class="line"></span><br><span class="line">--------------</span><br><span class="line">1000</span><br><span class="line">2000</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="7-构造函数和析构函数"><a href="#7-构造函数和析构函数" class="headerlink" title="7. 构造函数和析构函数"></a>7. 构造函数和析构函数</h3><ul>
+<li><p>_<em>init</em>_()：<br>类的构造函数，初始化方法，当创建这个类的实例时一定会调用该方法。  </p>
+</li>
+<li><p>_<em>del</em>_()：<br>当删除对象时，python 解释器也会默认调用该方法。</p>
+</li>
+</ul>
+<h3 id="8-面向对象三大特性"><a href="#8-面向对象三大特性" class="headerlink" title="8. 面向对象三大特性"></a>8. 面向对象三大特性</h3><h4 id="8-1-封装"><a href="#8-1-封装" class="headerlink" title="8.1 封装"></a>8.1 封装</h4><p>将内容封装到某处，从某处调用被封装的内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class person(object):</span><br><span class="line">    def __init__(self, name, age):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">	#封装</span><br><span class="line">    def printperson(self):</span><br><span class="line">        print(self.name, self.age)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">person1=person(&#x27;name1&#x27;,&#x27;18&#x27;)</span><br><span class="line">person2=person(&#x27;name2&#x27;,&#x27;19&#x27;)</span><br><span class="line"></span><br><span class="line">#调用</span><br><span class="line">person2.printperson()</span><br><span class="line"></span><br><span class="line">---------------------</span><br><span class="line">name2 19</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="8-2-继承"><a href="#8-2-继承" class="headerlink" title="8.2 继承"></a>8.2 继承</h4><ul>
+<li>优点：子可继承父的内容及特性。  </li>
+<li>继承语法：class 派生类名（基类名）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">c=child()</span><br><span class="line">c.childMethod()</span><br><span class="line">c.parentMethod()</span><br><span class="line"></span><br><span class="line">---------------------</span><br><span class="line">child init</span><br><span class="line">child method</span><br><span class="line">parent method</span><br></pre></td></tr></table></figure>
+<p>仅调用了子类的构造方法，若需调用父类构造方法，可采用以下几种方法：  </p>
+<ol>
+<li>在子类中，不定义构造方法。</li>
+<li>在子类的构造函数中，直接调用父类的构造函数。<code>parent.__init__(self)</code></li>
+<li>在子类中，调用super方法。<code>super(child,self).__init__()</code></li>
+</ol>
+<p>pyhton 支持多继承，一个子类继承多个父类，寻找方法为：深度优先、广度优先（python3）。  </p>
+<p>语法：class SubClassName(ParentClass1[,ParentClass2])</p>
+<ul>
+<li><p>广度优先  </p>
+<blockquote>
+<p>例：A为新式类，B和C均继承A，D继承B和C。<br>对象D的属性查询顺序为：<br>D -&gt; B -&gt; C -&gt; A</p>
+</blockquote>
+</li>
+<li><p>子类重写父类方法<br>在子类中，使用与父类中相同变量或方法名，可以重新定义父类中的属性和方法。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class A():</span><br><span class="line">    def hello(self):</span><br><span class="line">        print(&#x27;class a&#x27;)</span><br><span class="line"></span><br><span class="line">class B(A):</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">class C(A):</span><br><span class="line">    # 重写了hello方法</span><br><span class="line">    def hello(self):</span><br><span class="line">        print(&#x27;class c&#x27;)</span><br><span class="line"></span><br><span class="line">a=A()</span><br><span class="line">b=B()</span><br><span class="line">c=C()</span><br><span class="line">a.hello()</span><br><span class="line">b.hello()</span><br><span class="line">c.hello()</span><br><span class="line"></span><br><span class="line">----------------</span><br><span class="line">class a</span><br><span class="line">class a</span><br><span class="line">class c</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="8-3-多态"><a href="#8-3-多态" class="headerlink" title="8.3 多态"></a>8.3 多态</h4><ul>
+<li>多态：不同的子类对象，调用相同的父类方法，产生不同的结果。“龙生九子，各有不同”</li>
+</ul>
+<p>我自己理解，类似于父类中方法重写。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class People(Animals):</span><br><span class="line">    def talk(self):</span><br><span class="line">        print(&#x27;People are talking&#x27;)</span><br><span class="line"></span><br><span class="line">class Cat(Animals):</span><br><span class="line">    def talk(self):</span><br><span class="line">        print(&#x27;Cat is maow&#x27;)</span><br><span class="line"></span><br><span class="line">class Dog(Animals):</span><br><span class="line">    def talk(self):</span><br><span class="line">        print(&#x27;Dog is wang&#x27;)</span><br><span class="line"></span><br><span class="line">person=People()</span><br><span class="line">cat1=Cat()</span><br><span class="line">dog1=Dog()</span><br><span class="line"></span><br><span class="line"># 直接调用</span><br><span class="line">person.talk()</span><br><span class="line">cat1.talk()</span><br><span class="line">dog1.talk()</span><br><span class="line"></span><br><span class="line">-----------------------</span><br><span class="line">People are talking</span><br><span class="line">Cat is maow</span><br><span class="line">Dog is wang</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="9-类变量、成员变量（实例变量）、局部变量"><a href="#9-类变量、成员变量（实例变量）、局部变量" class="headerlink" title="9.类变量、成员变量（实例变量）、局部变量"></a>9.类变量、成员变量（实例变量）、局部变量</h3><ul>
+<li><p>类变量：可以由类名直接调用，也可以由对象来调用  </p>
+</li>
+<li><p>成员变量：可以由类的对象来调用，成员变量定义在构造函数内部，一定是以self.的形式给出的，因为self的含义就是代表实例对象。</p>
+</li>
+</ul>
+<p>区别：类变量的调用方式比成员变量多一种，即类直接调用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class TestClass(object):</span><br><span class="line">    num = 0  # 类变量</span><br><span class="line"></span><br><span class="line">    def __init__(self, x, y):</span><br><span class="line">        self.x = x  # 实例变量（成员变量），允许实例调用，不允许类调用</span><br><span class="line">        self.y = y</span><br><span class="line">        self.fuc(self.x, self.y)</span><br><span class="line"></span><br><span class="line">    def add(self):</span><br><span class="line">        total = 2</span><br><span class="line">        self.vara = 3  # 未在构造函数中进行初始化，所以为类变量</span><br><span class="line">        self.varb = 4</span><br><span class="line">        result = (self.x + self.y) * total</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">    def fuc(self, a, b):</span><br><span class="line">        self.varc = 100  # 成员变量，他们在成员函数func()中定义，但是在构造函数中调用了该函数</span><br><span class="line">        self.vard = 200</span><br><span class="line">        return a + b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">object_a = TestClass(10, 20)</span><br><span class="line">print(object_a.num)  # 通过实例调用</span><br><span class="line">print(TestClass.num)  # 通过类名调用</span><br><span class="line">print(object_a.x, object_a.y)  # 实例变量仅允许实例调用</span><br><span class="line">print(object_a.varc, object_a.vard)</span><br><span class="line"></span><br><span class="line">------------------------------</span><br><span class="line">0</span><br><span class="line">0</span><br><span class="line">10 20</span><br><span class="line">100 200</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="10-类中的私有方法和属性"><a href="#10-类中的私有方法和属性" class="headerlink" title="10.类中的私有方法和属性"></a>10.类中的私有方法和属性</h3><ul>
+<li><p>私有属性：<code>__private_attrs</code> 两个下划线开头，声明该属性为私有，不能在类的外部被使用或者访问。在类内部的方法中使用时 <code>self.__private_attrs</code>。  </p>
+</li>
+<li><p>私有方法：<code>__private_method</code> 两个下划线开头，声明该方法为私有方法，不能在类的外部调用。在类的内部调用<code>self.__private_method</code>。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class TestClass(object):</span><br><span class="line">    public_var = &#x27;hello world&#x27;</span><br><span class="line">    __private_name = &#x27;plumrx&#x27;</span><br><span class="line"></span><br><span class="line">    def display_var(self):</span><br><span class="line">        print(&#x27;print public var:%s&#x27; % self.public_var)</span><br><span class="line">        print(&#x27;print private name:%s&#x27; % self.__private_name)</span><br><span class="line">        print(self.__private_fun())</span><br><span class="line"></span><br><span class="line">    def __private_fun(self):</span><br><span class="line">        return (&#x27;execute private func:%s&#x27;%self.public_var)</span><br><span class="line"></span><br><span class="line">object_var=TestClass()</span><br><span class="line">print(object_var.public_var)</span><br><span class="line">print(object_var.__private_fun())</span><br><span class="line"></span><br><span class="line"># 私有化属性访问技巧</span><br><span class="line"># 对象._类名+私有属性</span><br><span class="line">print(object_var._TestClass__private_name)</span><br><span class="line">---------------------------------</span><br><span class="line">hello world</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/Users/plumrx/projects/kuangshi/RF52/lesson18/class18.py&quot;, line 179, in &lt;module&gt;</span><br><span class="line">    print(object_var.__private_fun())</span><br><span class="line">AttributeError: &#x27;TestClass&#x27; object has no attribute &#x27;__private_fun&#x27;</span><br><span class="line"></span><br><span class="line">plumrx</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ol>
+<li>如何在python中将变量或方法转为私有？<br> 变量名或方法名前加两个下划线</li>
+<li>如何在类外部调用私有属性或方法?<br> 对象._类名+私有属性名&#x2F;方法名<br> <code>object_var._TestClass__private_name</code></li>
+</ol>
+</blockquote>
+<h3 id="11-类的三种方法"><a href="#11-类的三种方法" class="headerlink" title="11.类的三种方法"></a>11.类的三种方法</h3><h4 id="11-1-实例方法"><a href="#11-1-实例方法" class="headerlink" title="11.1 实例方法"></a>11.1 实例方法</h4><ul>
+<li><p>定义：第一个参数必须为实例对象，一般约定为 self ，通过它来传递实例或类的属性和方法。</p>
+</li>
+<li><p>调用方式：只能由实例对象调用。</p>
+</li>
+<li><p>语法形式  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class TestClass(object):</span><br><span class="line"></span><br><span class="line">    def instance_method(self):</span><br><span class="line">        print(&#x27;实例方法&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实践</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Person:</span><br><span class="line">    def __init__(self, name, gender):</span><br><span class="line">        self.name = name  # 实例变量，不允许类调用</span><br><span class="line">        self.gender = gender</span><br><span class="line"></span><br><span class="line">    def get_name(self):</span><br><span class="line">        return self.name  # 实例方法，需要实例化才能使用</span><br><span class="line"></span><br><span class="line">    def get_gender(self):</span><br><span class="line">        return self.gender</span><br><span class="line"></span><br><span class="line">    def get_name(plumrx):</span><br><span class="line">        return plumrx.name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 调用实例方法一</span><br><span class="line">print(Person(&#x27;plumrx&#x27;, &#x27;女&#x27;).get_name())</span><br><span class="line">print(Person(&#x27;plumrx&#x27;, &#x27;女&#x27;).get_gender())</span><br><span class="line"></span><br><span class="line"># 调用实例方法二</span><br><span class="line">student = Person(&#x27;mrx&#x27;, &#x27;女&#x27;)  # 实例化</span><br><span class="line">print(student.get_name())</span><br><span class="line">print(student.get_gender())</span><br><span class="line"></span><br><span class="line">--------------------------------</span><br><span class="line">plumrx</span><br><span class="line">女</span><br><span class="line">mrx</span><br><span class="line">女</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="11-2-静态方法"><a href="#11-2-静态方法" class="headerlink" title="11.2 静态方法"></a>11.2 静态方法</h4><ul>
+<li><p>定义：使用装饰器@staticmethod。参数随意，但是方法体中不能使用类或实例的任何属性和方法。</p>
+</li>
+<li><p>调用方式：类和实例对象都可以调用。</p>
+</li>
+<li><p>语法形式 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class TestClass(object):</span><br><span class="line"></span><br><span class="line">    @staticmethod</span><br><span class="line">    def staticmethod():</span><br><span class="line">        print(&#x27;静态方法‘)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实践</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class Person:</span><br><span class="line"></span><br><span class="line">    count=0</span><br><span class="line">    location=&#x27;China&#x27;</span><br><span class="line"></span><br><span class="line">    def __init__(self,name,gender):</span><br><span class="line">        self.name=name</span><br><span class="line">        self.gender=gender</span><br><span class="line">        Person.count+=1</span><br><span class="line"></span><br><span class="line">    def get_name(self):</span><br><span class="line">        return self.name</span><br><span class="line"></span><br><span class="line">    @staticmethod</span><br><span class="line">    def get_location():</span><br><span class="line">        return Person.location</span><br><span class="line"></span><br><span class="line">    @staticmethod</span><br><span class="line">    def show_time():</span><br><span class="line">        return time.strftime(&#x27;%Y-%m-%d %H:%M:%S&#x27;,time.localtime())</span><br><span class="line"></span><br><span class="line"># 类名调用</span><br><span class="line">print(Person.get_location())</span><br><span class="line"># 实例调用</span><br><span class="line">student=Person(&#x27;plumrx&#x27;,&#x27;女&#x27;)</span><br><span class="line">print(student.get_location())</span><br><span class="line">print(student.show_time())</span><br><span class="line"></span><br><span class="line">--------------------------</span><br><span class="line">China</span><br><span class="line">China</span><br><span class="line">2022-09-26 23:41:34</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用途：主要用于存放逻辑性代码，归属于类但是跟类本身关联性不大。</p>
+</li>
+</ul>
+<h4 id="11-3-类方法"><a href="#11-3-类方法" class="headerlink" title="11.3 类方法"></a>11.3 类方法</h4><ul>
+<li><p>定义：使用装饰器@classmethod。第一个参数必须是当前类对象，一般约定为 cls ，通过它来传递类的属性和方法（不能传实例的属性和方法）；</p>
+</li>
+<li><p>调用方式：类和实例对象都可以调用。  </p>
+</li>
+<li><p>语法形式 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class TestClass(object):</span><br><span class="line"></span><br><span class="line">    @classmethod</span><br><span class="line">    def class_method(cls):</span><br><span class="line">        print(&#x27;类方法‘)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实践</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Person:</span><br><span class="line">    count = 0  # 类变量</span><br><span class="line"></span><br><span class="line">    def __init__(self, name, gender):</span><br><span class="line">        self.name = name  # 实例变量，不允许类调用</span><br><span class="line">        self.gender = gender</span><br><span class="line">        Person.count += 1</span><br><span class="line"></span><br><span class="line">    def get_name(self):</span><br><span class="line">        return self.name  # 实例方法，需要实例化才能使用</span><br><span class="line"></span><br><span class="line">    @classmethod  # 加装饰器才能标识为类方法</span><br><span class="line">    def get_instance_count(cls):</span><br><span class="line">        return Person.count</span><br><span class="line"></span><br><span class="line">    @classmethod</span><br><span class="line">    def create_a_instance(cls):</span><br><span class="line">        print(&#x27;create instance&#x27;)</span><br><span class="line">        return Person(&#x27;plumrx&#x27;,&#x27;女&#x27;)#类方法里虽然不可以使用实例变量，但是可以创建实例。</span><br><span class="line"></span><br><span class="line">print(Person.get_instance_count())#用类调用</span><br><span class="line">print(Person.create_a_instance().get_name())</span><br><span class="line"></span><br><span class="line"># 用对象调用</span><br><span class="line">student=Person(&#x27;plumrx&#x27;,&#x27;女&#x27;)</span><br><span class="line">print(student.get_instance_count())</span><br><span class="line"></span><br><span class="line">--------------------------</span><br><span class="line">0</span><br><span class="line">create instance</span><br><span class="line">plumrx</span><br><span class="line">2</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>区别：一个是单纯的类名调用，不需要初始化；另一个需要初始化。</p>
+</li>
+</ul>
+<h3 id="12-python-自定义异常类"><a href="#12-python-自定义异常类" class="headerlink" title="12.python 自定义异常类"></a>12.python 自定义异常类</h3><ul>
+<li><p>解决问题：系统提供的异常类型不能满足开发需求，可以创建自己的异常。</p>
+</li>
+<li><p>用法：异常类继承自 Exception 类，可以间接或直接继承。大多数的自定义异常的名字，以‘Error’结尾，尽量跟标准的异常明明保持一样。</p>
+</li>
+<li><p>实践</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 继承基类</span><br><span class="line">class MyError(Exception):</span><br><span class="line">    def __init__(self,msg):</span><br><span class="line">        self.msg=msg</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return self.msg</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    raise MyError(&#x27;错误类型&#x27;)</span><br><span class="line">except MyError as e:</span><br><span class="line">    print(&#x27;My exception occured&#x27;,e.msg)</span><br><span class="line"></span><br><span class="line">------------------------</span><br><span class="line">My exception occured 错误类型</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/09/27/python-%E8%A3%85%E9%A5%B0%E5%99%A8%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%81%E7%94%9F%E6%88%90%E5%99%A8/">
+                    
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
+                        </svg>
+                        <span class="al_text_ellipsis al_post_nav_desc">python-装饰器、迭代器、生成器</span>
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/07/24/python-%E6%96%87%E4%BB%B6%20IO%20%E8%AF%BB%E5%86%99/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">python - 文件 IO 读写</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>

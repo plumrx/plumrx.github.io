@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>python- Unittest测试框架.md</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        python- Unittest测试框架.md
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Wed October 12, 2022 02:54 PM
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Unittest-%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0"><span class="toc-text">Unittest 框架学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A0%B8%E5%BF%83%E8%A6%81%E7%B4%A0"><span class="toc-text">一、核心要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="toc-text">二、常见属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Unittest%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%B0%8F%E7%BB%93"><span class="toc-text">三、Unittest常见用法：基本用法小结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%94%E7%BB%83-%E8%AE%A1%E7%AE%97%E5%99%A8"><span class="toc-text">演练-计算器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%99%A8%E7%B1%BB"><span class="toc-text">计算器类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-text">实际应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%94%A8%E4%BE%8B%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%EF%BC%8C%E7%BB%84%E8%A3%85%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="toc-text">四、用例执行顺序，组装测试用例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%94%A8%E4%BE%8B%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%EF%BC%8C%E6%B7%BB%E5%8A%A0%E6%89%A7%E8%A1%8C%E9%9B%86"><span class="toc-text">修改用例执行顺序，添加执行集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A0%E8%A3%85%E9%A5%B0%E5%99%A8%EF%BC%8C%E4%B8%8E%E4%BB%A5%E4%B8%8B%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8%EF%BC%8C%E5%86%99%E6%B3%95%E5%9B%BA%E5%AE%9A"><span class="toc-text">加装饰器，与以下的装饰器，写法固定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E5%B0%86%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E6%89%B9%E9%87%8F%E5%AD%98%E6%94%BE%E5%9C%A8-Excel"><span class="toc-text">3.3 将测试数据批量存放在 Excel</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81Mock%E6%8E%A5%E5%8F%A3"><span class="toc-text">十一、Mock接口</span></a></li></ol></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h1 id="Unittest-框架学习"><a href="#Unittest-框架学习" class="headerlink" title="Unittest 框架学习"></a>Unittest 框架学习</h1><p> Unittest &#x3D; PyUnit ，是 Python 标准库中自带的单元测试框架。适用于单元测试、接口测试、Web 自动化测试，特性：通过类的方式，将测试用例组织在一起。</p>
+<h2 id="一、核心要素"><a href="#一、核心要素" class="headerlink" title="一、核心要素"></a>一、核心要素</h2><ol>
+<li>test case  测试案例</li>
+<li>test suite  测试套件</li>
+<li>test runner  测试部件</li>
+<li>text fixture  测试装置</li>
+</ol>
+<h2 id="二、常见属性"><a href="#二、常见属性" class="headerlink" title="二、常见属性"></a>二、常见属性</h2><blockquote>
+<p>import unittest<br>dir(unittest) # 查询包下面的所有属性<br>dir(unittest.TestCase) # 查询其中所有函数  </p>
+</blockquote>
+<ul>
+<li>unittest.TestCase()：所有测试用例类继承的基本类</li>
+<li>unittest.TestSuite()：用来创建测试套件的</li>
+<li>unittest.main()：将单元测试模块变为可直接运行的测试脚本，main()方法使用 TestLoader 类执行所有 test 开头的测试方法，且执行顺序根据 ASCII 码:0-9\A-Z\a-z。</li>
+<li>unittest.TextTestRunner()：通过下面的 run() 方法来运行 cuite 组装的测试用例，入参为测试套件。</li>
+</ul>
+<h2 id="三、Unittest常见用法：基本用法小结"><a href="#三、Unittest常见用法：基本用法小结" class="headerlink" title="三、Unittest常见用法：基本用法小结"></a>三、Unittest常见用法：基本用法小结</h2><ol>
+<li>导入 unittest 模块、被测文件或者其中的类。</li>
+<li>创建测试类，并继承 unittest.TestCase。</li>
+<li>重写 setUp 和 tearDown 方法，该两种方法在父类中已经存在。</li>
+<li>定义测试函数，用 test 开头。</li>
+<li>在函数体内使用断言。</li>
+<li>调用 unittest.main() 方法来运行测试用例。</li>
+</ol>
+<h3 id="演练-计算器"><a href="#演练-计算器" class="headerlink" title="演练-计算器"></a>演练-计算器</h3><h4 id="计算器类"><a href="#计算器类" class="headerlink" title="计算器类"></a>计算器类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Calculator(object):</span><br><span class="line">    def __init__(self, a, b):</span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line"></span><br><span class="line">    def add(self):</span><br><span class="line">        return self.a + self.b</span><br><span class="line"></span><br><span class="line">    def minus(self):</span><br><span class="line">        return self.a - self.b</span><br><span class="line"></span><br><span class="line">    def multip(self):</span><br><span class="line">        return self.a * self.b</span><br><span class="line"></span><br><span class="line">    def divide(self):</span><br><span class="line">        return self.a / self.b</span><br></pre></td></tr></table></figure>
+
+<h4 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># 导入unittest模块</span><br><span class="line">import unittest</span><br><span class="line">from calculator import Calculator</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 定义测试类</span><br><span class="line">class TestCalculator(unittest.TestCase):</span><br><span class="line"></span><br><span class="line">    # setUp方法用于初始化</span><br><span class="line">    # 入参为self，定义方法的变量也要&quot;self.变量&quot;</span><br><span class="line">    def setUp(self):</span><br><span class="line">        print(&#x27;test start&#x27;)</span><br><span class="line">        self.result = Calculator(10, 5)</span><br><span class="line"></span><br><span class="line">    # 定义测试用例，以&quot;test_&quot;开头命名的方法，方法的入参为self</span><br><span class="line">    # 可定义多个测试用例</span><br><span class="line">    def test_add(self):</span><br><span class="line">        self.assertEqual(self.result.add(), 15, &#x27;加法错误！&#x27;)</span><br><span class="line"></span><br><span class="line">    def test_minus(self):</span><br><span class="line">        self.assertEqual(self.result.minus(), 5, &#x27;减法错误！&#x27;)</span><br><span class="line"></span><br><span class="line">    def test_multip(self):</span><br><span class="line">        self.assertEqual(self.result.multip(), 50, &#x27;乘法错误！&#x27;)</span><br><span class="line"></span><br><span class="line">    def test_divide(self):</span><br><span class="line">        self.assertEqual(self.result.divide(), 2, &#x27;除法错误！&#x27;)</span><br><span class="line"></span><br><span class="line">    # 善后，清缓存</span><br><span class="line">    def tearDown(self):</span><br><span class="line">        print(&#x27;test end&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # unittest.main()方法会搜索该模块下所有以test开头的测试用例方法，并自动执行他们。</span><br><span class="line">    unittest.main(verbosity=2)</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、用例执行顺序，组装测试用例"><a href="#四、用例执行顺序，组装测试用例" class="headerlink" title="四、用例执行顺序，组装测试用例"></a>四、用例执行顺序，组装测试用例</h2><p>unittest 默认根据 ASCII 码，0-9，A-Z，a-z。  </p>
+<h3 id="修改用例执行顺序，添加执行集"><a href="#修改用例执行顺序，添加执行集" class="headerlink" title="修改用例执行顺序，添加执行集"></a>修改用例执行顺序，添加执行集</h3><ol>
+<li><p>修改测试用例方法名，前标序号</p>
+<blockquote>
+<p>test_001_***</p>
+</blockquote>
+</li>
+<li><p>引用测试集，按引入顺序执行  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 测试套件的使用</span><br><span class="line">if __name__==&#x27;__main__&#x27;:</span><br><span class="line">    # 构造测试集</span><br><span class="line">    suite = unittest.TestSuite()</span><br><span class="line"></span><br><span class="line">    # 将测试用例加入测试集</span><br><span class="line">    # 方法一:</span><br><span class="line">    suite.addTest(TestCalculator(&#x27;test_add&#x27;))</span><br><span class="line"></span><br><span class="line">    # 方法二：将用例编入列表，逐一添加</span><br><span class="line">    tests = [</span><br><span class="line">        TestCalculator(&#x27;test_add&#x27;),</span><br><span class="line">        TestCalculator(&#x27;test_minus&#x27;),</span><br><span class="line">        TestCalculator(&#x27;test_multip&#x27;),</span><br><span class="line">        TestCalculator(&#x27;test_divide&#x27;)</span><br><span class="line">    ]</span><br><span class="line">    suite.addTest(tests)</span><br><span class="line">    </span><br><span class="line">    # 执行测试集合</span><br><span class="line">    runner=unittest.TextTestRunner(verbosity=2)</span><br><span class="line">    runner.run(suite)</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">3. TestLoader.loadTestsFromTestCase 加载多个类  </span><br><span class="line">使用最多，可以一次加载某个类下面的所有测试用例，也支持加载多个类。  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>import unittest<br>from test_24_02 import TestCalculator<br>from test_24_02_02 import TestCalculator2</p>
+</li>
+</ol>
+<p>if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘:<br>    suite1 &#x3D; unittest.TestLoader().loadTestsFromTestCase(TestCalculator)<br>    suite2 &#x3D; unittest.TestLoader().loadTestsFromTestCase(TestCalculator2)</p>
+<pre><code>suite = unittest.TestSuite([suite1, suite2])
+
+runner = unittest.TextTestRunner(verbosity=2)
+runner.run(suite)
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. TestLoader.discover 匹配目录下的用例  </span><br><span class="line">若目录下存在两个测试用例，Test_Myclass.py &amp; Test_Myclass2.py ，使用 Testloader()，该类相对简便。  </span><br></pre></td></tr></table></figure>
+<p>import os<br>import unittest</p>
+<p>if _<em>name</em> &#x3D;&#x3D; ‘<strong>main</strong>‘:<br>    # 实例化测试套件<br>    suite &#x3D; unittest.TestSuite()<br>    # 1.实例化 TestLoader 对象<br>    # 2.使用discover 去找一个目录下的所有测试用例<br>    loader &#x3D; unittest.TestLoader()<br>    # 3.使用 addTests 将找到的测试用例放在测试套件下<br>    # os.getcwd()&#x3D;获取当前目录<br>    # 默认搜索路径，当前目录下，以 test 开头的测试文件<br>    suite.addTests(loader.discover(os.getcwd()))</p>
+<pre><code># 方法二：指定目录
+test_dir = &#39;./test&#39;
+suite = unittest.defaultTestLoader.discover(test_dir, pattern=&#39;test_*.py&#39;)
+</code></pre>
+<p>   runner&#x3D;unittest.TextTestRunner()<br>   runner.run(suite)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 五、将测试结果输入到文本</span><br><span class="line">声明test runner时需要增加一个参数，stream=f</span><br></pre></td></tr></table></figure>
+<pre><code>with open(&#39;unittest_report.txt&#39;, &#39;w&#39;) as f:
+    runner = unittest.TextTestRunner(stream=f, verbosity=2)
+    runner.run(suite)
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 六、setUp() tearDown()</span><br><span class="line">可以在所有case执行前准备一次环境，并在所有case执行结束手再清理环境。  </span><br></pre></td></tr></table></figure>
+<pre><code>@classmethod
+def setUpClass(cls) :
+    print(&#39;仅测试套件前执行一次&#39;)
+
+@classmethod
+def tearDownClass(cls) :
+    print(&#39;仅测试套件结束后执行一次&#39;)
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 七、跳过某个case  </span><br><span class="line"></span><br><span class="line">### skip 装饰器  </span><br><span class="line">1. @unittest.skip(reason):无条件跳过装饰的测试，并说明跳过测试的原因。  </span><br></pre></td></tr></table></figure>
+<pre><code>@unittest.skip(&#39;不执行&#39;)
+def test_add(self):
+    # 加断言
+    self.assertEqual(self.result.add(),12,&#39;加法错误！&#39;)
+</code></pre>
+<hr>
+<p>Skipped: 不执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. @unittest.skipif(reason):条件为真时，跳过装饰的测试，并说明跳过的原因。  </span><br></pre></td></tr></table></figure>
+<pre><code>@unittest.skipIf(3 &gt; 2, &#39;3&gt;2 不执行&#39;)
+def test_add(self):
+    # 加断言
+    self.assertEqual(self.result.add(), 12, &#39;加法错误！&#39;)
+</code></pre>
+<hr>
+<p>Skipped: 3&gt;2 不执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">3. @unittest.skipUnless(reason):条件为假时，跳过装饰的测试，并说明原因。  </span><br></pre></td></tr></table></figure>
+<pre><code>@unittest.skipUnless(sys.platform.startswith(&#39;linux&#39;),&#39;require Linux&#39;)
+def test_add(self):
+    # 加断言
+    self.assertEqual(self.result.add(), 12, &#39;加法错误！&#39;)
+</code></pre>
+<hr>
+<p>Skipped: require Linux</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4. @unittest.expectedFailure():测试标记失败。</span><br><span class="line"></span><br><span class="line">### TestCase.skipTest()方法</span><br></pre></td></tr></table></figure>
+<pre><code>def test_add(self):
+    # 加断言
+    self.skipTest(&#39;无需执行&#39;)
+    self.assertEqual(self.result.add(), 12, &#39;加法错误！&#39;)
+</code></pre>
+<hr>
+<p>Skipped: 无需执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">## 八、断言  </span><br><span class="line">1. assertEqual(a,b,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言a,b是否相等，相等用例通过。  </span><br><span class="line"></span><br><span class="line">2. assertNotEqual(a,b,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言a,b是否相等，不想等测试通过。  </span><br><span class="line"></span><br><span class="line">3. assertTrue(x,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言x是否为True，是True则用例通过。 </span><br><span class="line"></span><br><span class="line">4. assertFalse(x,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言x是否为False，是False则用例通过。  </span><br><span class="line"></span><br><span class="line">5. assertIs(a,b,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言a是否是b，是则用例通过。  </span><br><span class="line"></span><br><span class="line">6. assertNotIs(a,b,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言a是否不是b，不是则用例通过。  </span><br><span class="line"></span><br><span class="line">7. assertIsNone(x,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言x是否为None，是None则用例通过。  </span><br><span class="line"></span><br><span class="line">8. assertIsNotNone(x,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言x是否为None，不是None则用例通过。 </span><br><span class="line"></span><br><span class="line">9. assertIn(a,b,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言a是否在b中，在b中则用例通过。  </span><br><span class="line"></span><br><span class="line">10. assertNotIn(a,b,[msg=&#x27;失败打印信息&#x27;])  </span><br><span class="line">断言a是否在b中，不在b中则用例通过。  </span><br><span class="line"></span><br><span class="line">11. assertIsInstance(a,b,[msg=&#x27;失败打印信息&#x27;]) </span><br><span class="line">断言a是b的一个实例，是则用例通过。  </span><br><span class="line"></span><br><span class="line">12. assertNotIsInstance(a,b,[msg=&#x27;失败打印信息&#x27;]) </span><br><span class="line">断言a是b的一个实例，不是则用例通过。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 九、命令行执行用例  </span><br><span class="line"></span><br><span class="line">### 用例自动（递归）发现：</span><br><span class="line">1. 默认当前目录下所有符合 test*,py 的测试用例</span><br></pre></td></tr></table></figure>
+<p>python -m unittest<br>python -m unittest discover</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 通过 -s 参数指定要自动发现的目录，-p 参数指定用例文件的名称模式</span><br></pre></td></tr></table></figure>
+<p>python -m unittest discover -s project_directory -p “test_*.py”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 通过位置参数指定自动发现的目录和用例文件的名称模式</span><br></pre></td></tr></table></figure>
+<p>python -m unittest discover project_directory “test_*.py”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 执行指定用例</span><br><span class="line">1. 指定测试模块</span><br></pre></td></tr></table></figure>
+<p>python -m unnittest test_module1 test_module2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 指定测试类</span><br></pre></td></tr></table></figure>
+<p>python -m unittest test_module.TestClass</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 指定测试方法</span><br></pre></td></tr></table></figure>
+<p>python -m unittest 模块名.类名.方法名（用例）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. 指定测试文件的路径（python3）</span><br></pre></td></tr></table></figure>
+<p>python -m unittest tests&#x2F;test_something.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 十、参数化和数据驱动  </span><br><span class="line">### 1.背景  </span><br><span class="line">实际项目中，测试数据应统一管理，避免硬编码的情况，所以参数化、数据驱动的方式设计测试用例脚本会更佳合理安全。  </span><br><span class="line"></span><br><span class="line">### 2.定义  </span><br><span class="line">参数化测试是一种“数据驱动”测试，同方法测试不同参数，以覆盖所有可能的预期分支。测试数据与测试行为分离，被放入文件、数据库或者外部介质中，再由测试程序读取。  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 3.参数化库</span><br><span class="line">python 标准库中的 unittest 不支持参数化测试，可以使用：ddt、 parameterized.  </span><br><span class="line"></span><br><span class="line">#### 3.1 ddt数据驱动设计模式  </span><br><span class="line">* 数据驱动思想：数据和用例分离，通过外部数据去生成测试用例。</span><br><span class="line"></span><br><span class="line">* 安装</span><br><span class="line">&gt; pip3 install ddt</span><br><span class="line"></span><br><span class="line">* 实践一  </span><br><span class="line">导包更加详细</span><br></pre></td></tr></table></figure>
+<p>import unittest<br>from ddt import ddt, data, unpack</p>
+<h1 id="加装饰器，与以下的装饰器，写法固定"><a href="#加装饰器，与以下的装饰器，写法固定" class="headerlink" title="加装饰器，与以下的装饰器，写法固定"></a>加装饰器，与以下的装饰器，写法固定</h1><p>@ddt<br>class MyTest(unittest.TestCase):<br>    # 声明参数，以元祖或列表的形式，每条数据对应一条用例<br>    @data((3, 1), (1, 0), (1.2, 1.0))<br>    @unpack<br>    def test_values(self, first, second):<br>        print(first, second)<br>        self.assertTrue(first &gt; second)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 实践二  </span><br><span class="line">导包更加笼统</span><br></pre></td></tr></table></figure>
+<p>import ddt<br>import unittest</p>
+<p>@ddt.ddt<br>class MyTest(unittest.TestCase):<br>    #列表或元祖<br>    @ddt.data([1, 2, 3, 6])<br>    @ddt.unpack<br>    def test_add(self, t1, t2, t3, excp):<br>        sum &#x3D; t1 + t2 + t3<br>        self.assertEqual(sum, excp)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">* 实践三  </span><br><span class="line">用文件存储测试数据</span><br></pre></td></tr></table></figure>
+<p>——–data_003.json——–<br>[<br>  “1||2||3”,<br>  “3||2||5”,<br>  “3||8||11”<br>]</p>
+<p>———test_003.py———-<br>@ddt.ddt<br>class MyTest(unittest.TestCase):</p>
+<pre><code># 数据以外部文件形式存储
+@ddt.file_data(&#39;data_003.json&#39;)
+@ddt.unpack
+def test_sum(self, value):
+    # 数据读取，分离
+    a, b, sum = value.split(&#39;||&#39;)
+    print(a, b, sum)
+    result = int(a) + int(b)
+    self.assertEqual(result, int(sum))
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">#### 3.2 parameterized 参数化驱动  </span><br><span class="line"></span><br><span class="line">* 特点：不适用于数据存储于外部文件。</span><br><span class="line"></span><br><span class="line">* 安装</span><br><span class="line">&gt; pip3 install parameterized</span><br><span class="line"></span><br><span class="line">* 实践一  </span><br><span class="line">parameterized 参数化，仅需要一个装饰器，相比 ddt 更加简洁。</span><br></pre></td></tr></table></figure>
+<p>import unittest<br>from parameterized import parameterized</p>
+<p>class MyTest(unittest.TestCase):<br>    @parameterized.expand([(3, 1), (1, 10)])<br>    def test_values(self, first, second):<br>        print(first,second)<br>        self.assertTrue(first &gt; second)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">* 实践二  </span><br><span class="line">参数化参数：列表套元祖</span><br></pre></td></tr></table></figure>
+<p>import unittest<br>from parameterized import parameterized</p>
+<p>class MyTest(unittest.TestCase):</p>
+<pre><code>@parameterized.expand([(&#39;plumrx&#39;, &#39;123&#39;), (&#39;miumiu&#39;, &#39;321&#39;)])
+def test_params(self, name, pwd):
+    print(&#39;name=%s,pwd=%s&#39; % (name, pwd))
+</code></pre>
+<p>&#96;&#96;&#96;</p>
+<h4 id="3-3-将测试数据批量存放在-Excel"><a href="#3-3-将测试数据批量存放在-Excel" class="headerlink" title="3.3 将测试数据批量存放在 Excel"></a>3.3 将测试数据批量存放在 Excel</h4><ol>
+<li>xlrd<br>可读取 Excel 文件，支持xls,xlsx格式。  </li>
+<li>xlwt<br>可生成 Excel 文件，仅支持 xls 文件。</li>
+<li>openpyxl<br>同时支持读写文件，主要适用于 xlsx 文件。</li>
+</ol>
+<h2 id="十一、Mock接口"><a href="#十一、Mock接口" class="headerlink" title="十一、Mock接口"></a>十一、Mock接口</h2>
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/10/24/python-RESTful%E8%AF%B7%E6%B1%82/">
+                    
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
+                        </svg>
+                        <span class="al_text_ellipsis al_post_nav_desc">python- RESTful请求</span>
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/10/10/%E6%9E%84%E5%BB%BA%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB-md/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">构建接口测试体系.md</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>
