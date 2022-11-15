@@ -445,5 +445,27 @@ class MyTest(unittest.TestCase):
 
 
 
+#### 3.4 设计定制的测试数据参数类
+
+1. 先设定一个基类；
+2. 再根据不同的数据类型，定义不同的类，继承基类，可能是Excel、数据库、外部文件；
+3. 最后定义一个数据工厂的方法。
+
+
+#### 3.5 多接口测试  
+接口1返回的数据，接口二需要用到。将第一个接口的数据提升成全局变量，扩大作用范围。
+```
+class Test(object):
+    def test_login(self):
+        payload={'username':'plumrx','password':'plumrx'}
+        response=TestBattal.http.post('login',params=payload)
+        
+        globals()["text"]=response.text.split('\n')[1:]
+        
+        
+    def test_select(self):
+        global()["equipment"]=random.choice(globals()["text"]).split('')[0]
+```
+
 
 ## 十一、Mock接口
