@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>代码管理</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        代码管理
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Tue November 15, 2022 05:34 PM
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86"><span class="toc-text">代码管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SVN-%E9%9B%86%E4%B8%AD%E5%BC%8F"><span class="toc-text">SVN - 集中式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%89%B9%E7%82%B9"><span class="toc-text">1.特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0"><span class="toc-text">2.实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">3.优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">4.适用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GIT-%E5%88%86%E5%B8%83%E5%BC%8F"><span class="toc-text">GIT - 分布式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%89%B9%E7%82%B9-1"><span class="toc-text">1.特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0-1"><span class="toc-text">2.实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BC%98%E7%BC%BA%E7%82%B9-1"><span class="toc-text">3.优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="toc-text">4.适用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%89%88%E6%9C%AC%E5%BA%93%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-text">5.版本库和工作区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4%E4%B8%AA%E5%8C%BA-%E2%80%93-%E6%A0%B8%E5%BF%83"><span class="toc-text">6. 4个区 – 核心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3%E4%B8%AA%E6%AD%A5%E9%AA%A4-%E2%80%93-%E6%A0%B8%E5%BF%83"><span class="toc-text">7. 3个步骤 – 核心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-5%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="toc-text">8. 5种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E4%B8%A4%E7%A7%8D%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E6%96%B9%E5%BC%8F"><span class="toc-text">9. 两种通信协议方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-git-clone-%E9%83%BD%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">10. git clone 都做了什么？</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h1 id="代码管理"><a href="#代码管理" class="headerlink" title="代码管理"></a>代码管理</h1><h2 id="SVN-集中式"><a href="#SVN-集中式" class="headerlink" title="SVN - 集中式"></a>SVN - 集中式</h2><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
+<li>代码一致性高，每个人都可以看到其他人在项目中做什么，管理员可以掌握每个开发者的权限。</li>
+<li>必须联网，中央服务器不可靠，易出现单点故障。</li>
+<li>版本号连续，可以预判下一个版本号。</li>
+<li>每个子目录都维护.svn目录，记录该目录中文件的修改情况，以及与服务端仓库的对应关系。可以checkout 部分路径下的内容，不用整个版本库或分支。每个子目录下都有单独的.svn目录。</li>
+</ol>
+<h3 id="2-实现"><a href="#2-实现" class="headerlink" title="2.实现"></a>2.实现</h3><p>分支和标签都来自目录拷贝，通常约定是拷贝在branchs&#x2F;和tags&#x2F;目录下。所谓分支、tag 都只是仓库中不同路径的一个对象或索引。</p>
+<h3 id="3-优缺点"><a href="#3-优缺点" class="headerlink" title="3.优缺点"></a>3.优缺点</h3><ol>
+<li>管理方便，逻辑明确</li>
+<li>集中式服务器更能保证安全性</li>
+<li>代码一致性高</li>
+<li>服务器压力大。数据库容量暴增</li>
+<li>必须链接服务器才能工作</li>
+</ol>
+<h3 id="4-适用场景"><a href="#4-适用场景" class="headerlink" title="4.适用场景"></a>4.适用场景</h3><p>适合开发人数不多，非开源的项目。</p>
+<h2 id="GIT-分布式"><a href="#GIT-分布式" class="headerlink" title="GIT - 分布式"></a>GIT - 分布式</h2><h3 id="1-特点-1"><a href="#1-特点-1" class="headerlink" title="1.特点"></a>1.特点</h3><ol>
+<li>每个人根据权限不同，不可以看到其他人做的所有事情。</li>
+<li>没有统一的“中央服务器”，每个人都是一个完整的版本库，意味着任何一处协同用的服务器故障，都可以从其他机器恢复。</li>
+<li>采用40位哈希值作为版本号，不重复。</li>
+<li>没有部分检出，本地仓库信息完全维护在project根目录的.git目录下。</li>
+</ol>
+<h3 id="2-实现-1"><a href="#2-实现-1" class="headerlink" title="2.实现"></a>2.实现</h3><p>分支世纪上近视一个包含所指对象校验和哈希值的文件，git的分支是完全隔离的，一个提交一般只能发生在一个分支中。</p>
+<h3 id="3-优缺点-1"><a href="#3-优缺点-1" class="headerlink" title="3.优缺点"></a>3.优缺点</h3><ol>
+<li>公共服务器压力和数据量都不会太大</li>
+<li>速度快、灵活、可以离线工作</li>
+<li>任意两个开发这之间冲突解决较为简单</li>
+<li>学习周期相对较长</li>
+<li>代码保密性差，clone 可以完全公开所有代码和版本信息</li>
+</ol>
+<h3 id="4-适用场景-1"><a href="#4-适用场景-1" class="headerlink" title="4.适用场景"></a>4.适用场景</h3><p>适合分布式团队多人协作，敏捷开发。</p>
+<h3 id="5-版本库和工作区"><a href="#5-版本库和工作区" class="headerlink" title="5.版本库和工作区"></a>5.版本库和工作区</h3><p>Git的版本库和工作区在同一个目录下，’.git’。他是用来保存元数据和对象数据库的地方。每次clone 镜像仓库的时候，实际拷贝的就是这个目录里面的数据。  </p>
+<ul>
+<li>config：存放当前项目配置信息  </li>
+<li>objects：提交信息的对象，每次提交的版本号，取版本号前两位为文件夹，文件以后38位组成。</li>
+<li>HEAD：当前分支的指向，一般为master。</li>
+<li>index：暂存区，add</li>
+<li>hooks：脚本，log信息，加密过</li>
+</ul>
+<h3 id="6-4个区-–-核心"><a href="#6-4个区-–-核心" class="headerlink" title="6. 4个区 – 核心"></a>6. 4个区 – 核心</h3><ol>
+<li>Workspace:工作区，为电脑实际目录</li>
+<li>Index&#x2F;Stage:暂存区，临时保存你的改动</li>
+<li>Local Repository:仓库区（本地仓库），在.git下</li>
+<li>Remote Repository:远端仓库</li>
+</ol>
+<h3 id="7-3个步骤-–-核心"><a href="#7-3个步骤-–-核心" class="headerlink" title="7. 3个步骤 – 核心"></a>7. 3个步骤 – 核心</h3><ol>
+<li><p>把所有文件，从工作区放进暂存区 </p>
+<blockquote>
+<p>git add .  </p>
+</blockquote>
+</li>
+<li><p>把所有文件从暂存区提交到本地仓库</p>
+<blockquote>
+<p>git commit  </p>
+</blockquote>
+</li>
+<li><p>把所有文件从本地仓库推送至远端仓库</p>
+<blockquote>
+<p>git push</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="8-5种状态"><a href="#8-5种状态" class="headerlink" title="8. 5种状态"></a>8. 5种状态</h3><ol>
+<li>Origin：未修改，原始文档</li>
+<li>Modified &#x2F; Untracked：已修改未添加暂存</li>
+<li>Staged：已修改已添加至暂存区</li>
+<li>Committed：已提交至本地仓库</li>
+<li>Pushed：已推送至远端仓库</li>
+</ol>
+<h3 id="9-两种通信协议方式"><a href="#9-两种通信协议方式" class="headerlink" title="9. 两种通信协议方式"></a>9. 两种通信协议方式</h3><ol>
+<li><p>HTTPS URLs<br>GitHub 官方推荐采用该方式，适用面更广，即使在有防火墙或者代理的情况下依旧适用，使用更方便，配置更简单。  </p>
+</li>
+<li><p>SSH URLs<br>采用该方式之前，需要先在本地计算机生成密钥对。</p>
+</li>
+</ol>
+<h3 id="10-git-clone-都做了什么？"><a href="#10-git-clone-都做了什么？" class="headerlink" title="10. git clone 都做了什么？"></a>10. git clone 都做了什么？</h3><ol>
+<li><p>新建文件夹，默认取url中，‘.git’前一个单词；</p>
+<blockquote>
+<p>mkdir blog</p>
+</blockquote>
+</li>
+<li><p>初始化 git；</p>
+<blockquote>
+<p>git init</p>
+</blockquote>
+</li>
+<li><p>新增远端，默认名称为‘origin’；</p>
+<blockquote>
+<p>git remote add origin url</p>
+</blockquote>
+</li>
+<li><p>从远端获取代码库</p>
+<blockquote>
+<p>git fetch</p>
+</blockquote>
+</li>
+<li><p>切换分支</p>
+<blockquote>
+<p>git checkout -b oringin&#x2F;master</p>
+</blockquote>
+</li>
+</ol>
+
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/">
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/11/07/Charles-%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">Charles-抓包工具</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>
