@@ -3,11 +3,6 @@ title: python-邮件发送
 date: 2022-11-17 23:23:56
 tags:
 ---
----
-title: python-发邮件
-date: 2022-11-17 20:04:12
-tags:
----
 
 
 # 使用 python 发邮件  
@@ -53,7 +48,7 @@ msg['from'] = 'plumrx'
 msg['to'] = receiver
 msg['subject'] = 'text email demo'
 
-# 登录采用SSL方式，安全套接字层，可确保互联网连接安全，保护两个系统之间发送的任何敏感数据，防止网络犯罪分子读取和修改任何传输信息。
+# 登录采用SSL方式，安全套接字层，可确保互联网连接安全，保护两个系统之间发送的任何敏感数据，防止犯罪分子读取和修改任何传输信息。
 # 调用发件服务
 smtp = smtplib.SMTP_SSL(smtp_server, port)
 # 登录
@@ -63,7 +58,9 @@ smtp.sendmail(sender, receiver, msg.as_string())
 # 关闭邮件服务
 smtp.quit()
 
-```  
-<img decoding="async" src="../images/纯文本邮件.jpg" width="100%">   
 
-{% asset_img example.jpg This is an example image %}
+<img decoding="async" src="../images/纯文本邮件.jpg" width="100%"> 
+```  
+  
+
+{% asset_img 纯文本邮件.jpg This is an example image %}
