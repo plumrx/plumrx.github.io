@@ -5,7 +5,7 @@
     
     <link rel='stylesheet' href="/./css/dracula.css">
 
-        <title>How does the browser work after typing a URL</title>
+        <title>python-斐波那契数列（递归）</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
 <link rel="stylesheet" href="/css/style.css">
@@ -73,11 +73,11 @@
             <article class="al_article">
                 <header>
                     <h1 class="al_page_title">
-                        How does the browser work after typing a URL
+                        python-斐波那契数列（递归）
                     </h1>
                     <div class="al_page_info dis_flex">
                         <div class="al_page_content_info">
-                            Sun January 20, 2019 09:57 PM
+                            Sun November 20, 2022 03:29 PM
                         </div>
 
                         
@@ -88,27 +88,55 @@
                 </header>
 
                 
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="toc-text">斐波那契数列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1. 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%9E%90"><span class="toc-text">2. 分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%9E%E8%B7%B5"><span class="toc-text">3. 实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%97%AE%E9%A2%98"><span class="toc-text">4. 问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88"><span class="toc-text">5. 优化方案</span></a></li></ol></li></ol>
+                    </div>
+                
 
                 
                 <section id="post-body">
-                    <ol>
-<li><p>解析域名 - DNS ：<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> -&gt;180.97.33.107</p>
-</li>
-<li><p>查询该IP的端口号：若 DNS 解析出的地址，不包含端口号，则采用协议默认的端口号（http:80;https:443）</p>
-</li>
-<li><p>建立 TCP 连接：</p>
-</li>
-</ol>
+                    <h1 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h1><p>想用递归的方式，实现求斐波那契数列第 N 项的功能。</p>
+<h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><p>斐波那契数列（Fibonacci sequence），又称黄金分割数列，因数学家莱昂纳多·斐波那契（Leonardo Fibonacci）以兔子繁殖为例子而引入，故又称为“兔子数列”，指的是这样一个数列：1、1、2、3、5、8、13、21、34、……在数学上，斐波那契数列以如下被以递推的方法定义：F(0)&#x3D;0，F(1)&#x3D;1, F(n)&#x3D;F(n - 1)+F(n - 2)（n ≥ 2，n ∈ N*）</p>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><p>搞清楚该数列定义之后，因数学和编程中的差异，所以我这里定义第 0 项数值为 0，分析得出以下规律：</p>
+<pre><code># n为项数   
+n=0:
+    F(n) = 0
+n=1:
+    F(n) = 1
+n&gt;1:
+    F(n) = F(n-1) + F(n-2)
+</code></pre>
+<h2 id="3-实践"><a href="#3-实践" class="headerlink" title="3. 实践"></a>3. 实践</h2><pre><code>def fib(n):
+    if 1 &gt;= n &gt; -1:
+        return n
+    elif n &gt; 1:
+        return fib(n - 1) + fib(n - 2)
+    else:
+        return &quot;The index must be non-negative integer&quot;
+
+
+print(&#39;fib(-999)=&#39; + str(fib(-999)))
+print(&#39;fib(-1)=&#39; + str(fib(-1)))
+print(&#39;fib(0)=&#39; + str(fib(0)))
+print(&#39;fib(1)=&#39; + str(fib(1)))
+print(&#39;fib(5)=&#39; + str(fib(5)))
+
+------------------------
+fib(-999)=The index must be non-negative integer
+fib(-1)=The index must be non-negative integer
+fib(0)=0
+fib(1)=1
+fib(5)=5
+</code></pre>
+<h2 id="4-问题"><a href="#4-问题" class="headerlink" title="4. 问题"></a>4. 问题</h2><p>一般递归, 每一级递归都需要调用函数, 会创建新的栈,随着递归深度的增加, 创建的栈越来越多, 造成爆栈，结果如下：  </p>
+<pre><code>print(&#39;fib(999)=&#39; + str(fib(999)))
+----------------------------
+RecursionError: maximum recursion depth exceeded in comparison
+</code></pre>
+<h2 id="5-优化方案"><a href="#5-优化方案" class="headerlink" title="5. 优化方案"></a>5. 优化方案</h2><p>尾递归基于函数的尾调用, 每一级调用直接返回函数的返回值更新调用栈,而不用创建新的调用栈, 类似迭代的实现, 时间和空间上均优化了一般递归。</p>
 <ul>
-<li>服务器主机：是一台物理意义上的硬件设备，与家用PC类似。</li>
-<li>服务器软件：是一款安装在服务器主机上的服务器管理软件，与 Windows 操作系统类似。</li>
+<li>还没尝试写，先了解下方法(&gt;_&lt;)</li>
 </ul>
-<ol start="4">
-<li><p>服务器应答请求：依据请求中的路径，寻找该文件。若找到，则将其发送给浏览器；若找不到，则返回 4** 的状态码。</p>
-</li>
-<li><p>关闭 TCP 连接，渲染页面：为节省服务器的资源占用，在此情况下就可以将之前建立的连接关闭。接着，根据不同的服务器，渲染出不同的效果。浏览器兼容性问题就出现在这一步，很多方法在某些特定的浏览器上不支持，渲染页面时就会出现错误，编码时应注意。</p>
-</li>
-</ol>
 
                 </section>
 
@@ -121,15 +149,15 @@
 
             
             <nav class="dis_flex al_post_nav">
-                <a class="al_post_nav_item dis_flex_acenter" href="/2019/02/27/Note-markdown/">
-                    
-                        <svg class="al_arrow">
-                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
-                        </svg>
-                        <span class="al_text_ellipsis al_post_nav_desc">Note - markdown</span>
+                <a class="al_post_nav_item dis_flex_acenter" href="/">
                     
                 </a>
-                <a class="al_post_nav_item dis_flex_acenter" href="/">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/11/17/python-%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">python-邮件发送</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
                     
                 </a>
             </nav>

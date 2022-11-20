@@ -88,10 +88,67 @@
                 </header>
 
                 
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-python-%E5%8F%91%E9%82%AE%E4%BB%B6"><span class="toc-text">使用 python 发邮件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SMTP-%E5%8D%8F%E8%AE%AE"><span class="toc-text">1. SMTP 协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BA%AF%E6%96%87%E6%9C%AC%E9%82%AE%E4%BB%B6"><span class="toc-text">2. 纯文本邮件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%82%AE%E7%AE%B1%E8%AE%BE%E7%BD%AE"><span class="toc-text">2.1 邮箱设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%82%AE%E4%BB%B6%E7%BC%96%E8%BE%91%E4%B8%8E%E5%8F%91%E9%80%81"><span class="toc-text">2.2 邮件编辑与发送</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B8%A6%E9%99%84%E4%BB%B6%E9%82%AE%E4%BB%B6"><span class="toc-text">3. 带附件邮件</span></a></li></ol></li></ol>
+                    </div>
+                
 
                 
                 <section id="post-body">
-                    
+                    <h1 id="使用-python-发邮件"><a href="#使用-python-发邮件" class="headerlink" title="使用 python 发邮件"></a>使用 python 发邮件</h1><h2 id="1-SMTP-协议"><a href="#1-SMTP-协议" class="headerlink" title="1. SMTP 协议"></a>1. SMTP 协议</h2><p>SMTP（Simple Mail Transfer Protocol ）：简单邮件传输协议。python 默认支持该协议，使用该协议可以构造纯文本和带附件的邮件。该协议其中包含两个模块：smtplib（发邮件）、email（构造邮件）。</p>
+<h2 id="2-纯文本邮件"><a href="#2-纯文本邮件" class="headerlink" title="2. 纯文本邮件"></a>2. 纯文本邮件</h2><h3 id="2-1-邮箱设置"><a href="#2-1-邮箱设置" class="headerlink" title="2.1 邮箱设置"></a>2.1 邮箱设置</h3><p>以QQ邮箱为例:  </p>
+<ol>
+<li>先设置邮箱授权码<br>设置 -&gt; 账户 -&gt; POP3&#x2F;IMAP&#x2F;SMTP&#x2F;Exchange&#x2F;CardDAV&#x2F;CalDAV服务 -&gt; 开启POP3&#x2F;SMTP服务  <img src="/2022/11/17/python-%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/%E5%BC%80%E5%90%AFpop3%E5%8D%8F%E8%AE%AE.jpg" class="" title="开启pop3协议">   </li>
+<li>配置邮件客户端<br>按提示，编辑短信，获取授权码。  <img src="/2022/11/17/python-%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81.png" class="" title="短信验证">   
+<img src="/2022/11/17/python-%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/%E8%8E%B7%E5%8F%96%E6%8E%88%E6%9D%83%E7%A0%81.png" class="" title="获取授权码"></li>
+</ol>
+<h3 id="2-2-邮件编辑与发送"><a href="#2-2-邮件编辑与发送" class="headerlink" title="2.2 邮件编辑与发送"></a>2.2 邮件编辑与发送</h3><pre><code class="py"> 调用 SMTP 发件服务
+import smtplib
+# 导入纯文本的邮件模板类
+# MIMEText 类被用来创建主类型为 text 的 MIME 对象
+from email.mime.text import MIMEText
+
+# 配置发送参数
+# QQ邮箱服务器
+smtp_server = &#39;smtp.qq.com&#39;
+sender = &#39;664078648@qq.com&#39;
+auth_code = &#39;ekmmmufolpjrbehf&#39;
+receiver = &#39;664078648@qq.com&#39;
+# QQ邮箱服务器默认端口号
+port = 465
+
+# 编写邮件正文
+body=&#39;这是该封邮件的内容，仅供参考。&#39;
+msg = MIMEText(body, &#39;html&#39;, &#39;utf-8&#39;)
+# 发件人名称展示
+msg[&#39;from&#39;] = &#39;plumrx&#39;
+msg[&#39;to&#39;] = receiver
+msg[&#39;subject&#39;] = &#39;text email demo&#39;
+
+# 登录采用SSL方式，安全套接字层，可确保互联网连接安全，保护两个系统之间发送的任何敏感数据，防止犯罪分子读取和修改任何传输信息。
+# 调用发件服务
+smtp = smtplib.SMTP_SSL(smtp_server, port)
+# 登录
+smtp.login(sender, auth_code)
+# 发送邮件，以字符串拼接
+smtp.sendmail(sender, receiver, msg.as_string())
+# 关闭邮件服务
+smtp.quit()
+</code></pre>
+<div style="width:70%;margin:auto"><img src="/2022/11/17/python-%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/%E7%BA%AF%E6%96%87%E6%9C%AC%E9%82%AE%E4%BB%B6.jpg" class="" title="邮件结果"> </div>
+
+
+
+
+
+
+<h2 id="3-带附件邮件"><a href="#3-带附件邮件" class="headerlink" title="3. 带附件邮件"></a>3. 带附件邮件</h2><p>发送带附件邮件需要用到 MIMEMultipart 类，可以生成包含多个部分的邮件体。</p>
+<ol>
+<li>导包</li>
+<li>配置发送邮件相关参数（5个）</li>
+<li>定义邮件相关参数</li>
+</ol>
+
                 </section>
 
                 
@@ -103,7 +160,12 @@
 
             
             <nav class="dis_flex al_post_nav">
-                <a class="al_post_nav_item dis_flex_acenter" href="/">
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/11/20/python-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%EF%BC%88%E9%80%92%E5%BD%92%EF%BC%89/">
+                    
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-left"></use>
+                        </svg>
+                        <span class="al_text_ellipsis al_post_nav_desc">python-斐波那契数列（递归）</span>
                     
                 </a>
                 <a class="al_post_nav_item dis_flex_acenter" href="/2022/11/15/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/">
@@ -138,6 +200,16 @@
         All Right Reserved
     </div>
 </div>
+
+
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js">
+</script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
 
         <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
         
