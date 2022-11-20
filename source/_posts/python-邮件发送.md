@@ -16,15 +16,16 @@ SMTP（Simple Mail Transfer Protocol ）：简单邮件传输协议。python 默
 以QQ邮箱为例:  
 1. 先设置邮箱授权码  
 设置 -> 账户 -> POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 -> 开启POP3/SMTP服务  
-<img decoding="async" src="../images/开启pop3协议.jpg" width="70%">
+{% asset_img 开启pop3协议.jpg 开启pop3协议 %}   
 2. 配置邮件客户端  
 按提示，编辑短信，获取授权码。  
-<img decoding="async" src="../images/短信验证.png" width="70%">
-<img decoding="async" src="../images/获取授权码.png" width="70%">
+{% asset_img 短信验证.png 短信验证 %}   
+{% asset_img 获取授权码.png 获取授权码 %} 
 
 
 ### 2.2 邮件编辑与发送  
-```
+
+``` py
  调用 SMTP 发件服务
 import smtplib
 # 导入纯文本的邮件模板类
@@ -57,10 +58,18 @@ smtp.login(sender, auth_code)
 smtp.sendmail(sender, receiver, msg.as_string())
 # 关闭邮件服务
 smtp.quit()
-
-
-<img decoding="async" src="../images/纯文本邮件.jpg" width="100%"> 
 ```  
-  
 
-{% asset_img 纯文本邮件.jpg This is an example image %}
+  
+<div style="width:70%;margin:auto">{% asset_img 纯文本邮件.jpg 邮件结果 %} </div>
+
+
+
+
+
+
+## 3. 带附件邮件  
+发送带附件邮件需要用到 MIMEMultipart 类，可以生成包含多个部分的邮件体。
+1. 导包
+2. 配置发送邮件相关参数（5个）
+3. 定义邮件相关参数
