@@ -13,7 +13,7 @@ SMTP（Simple Mail Transfer Protocol ）：简单邮件传输协议。python 默
 ## 2. 纯文本邮件
 
 ### 2.1 邮箱设置  
-以QQ邮箱为例:  
+#### 2.1.1 QQ邮箱:  
 1. 先设置邮箱授权码  
 设置 -> 账户 -> POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 -> 开启POP3/SMTP服务  
 {% asset_img 开启pop3协议.jpg 开启pop3协议 %}   
@@ -21,6 +21,11 @@ SMTP（Simple Mail Transfer Protocol ）：简单邮件传输协议。python 默
 按提示，编辑短信，获取授权码。  
 {% asset_img 短信验证.png 短信验证 %}   
 {% asset_img 获取授权码.png 获取授权码 %} 
+
+#### 2.1.2 Outlook邮箱  
+POP 服务器名称：outlook.office365.com
+默认端口：995  
+加密方法：TLS
 
 
 ### 2.2 邮件编辑与发送  
@@ -71,5 +76,6 @@ smtp.quit()
 ## 3. 带附件邮件  
 发送带附件邮件需要用到 MIMEMultipart 类，可以生成包含多个部分的邮件体。
 1. 导包
-2. 配置发送邮件相关参数（5个）
+2. 配置发送邮件相关参数（5个）:  
+发件所属邮箱服务、发件人、收件人、认证码、默认端口号
 3. 定义邮件相关参数
