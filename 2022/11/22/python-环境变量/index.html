@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>python-环境变量</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">plumrx 的博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>plumrx 的博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>Plumrx</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        python-环境变量
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Tue November 22, 2022 02:30 PM
+                        </div>
+
+                        
+
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python%E4%B8%AD%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">python中的环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">1. 环境变量是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">2. 设置环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-text">2.1 命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-PyCharm"><span class="toc-text">2.2 PyCharm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8F%96%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">3. 如何读取环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9B%B4%E6%8E%A5%E8%AF%BB%E5%8F%96"><span class="toc-text">3.1 命令行直接读取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-os-%E8%AF%BB%E5%8F%96"><span class="toc-text">3.2 os 读取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">4. 环境变量的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%BD%9C%E7%94%A8%EF%BC%9A"><span class="toc-text">4.1 作用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E4%B8%8D%E8%AE%BE%E7%BD%AE%E4%BC%9A%E6%80%8E%E4%B9%88%E6%A0%B7%EF%BC%9F"><span class="toc-text">4.2 不设置会怎么样？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-text">5. 环境变量实际应用</span></a></li></ol></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h1 id="python中的环境变量"><a href="#python中的环境变量" class="headerlink" title="python中的环境变量"></a>python中的环境变量</h1><h2 id="1-环境变量是什么？"><a href="#1-环境变量是什么？" class="headerlink" title="1. 环境变量是什么？"></a>1. 环境变量是什么？</h2><p>一般是指在操作系统中用来指定操作系统运行环境的一些参数，如：临时文件夹位置和系统文件夹位置等。   </p>
+<h2 id="2-设置环境变量"><a href="#2-设置环境变量" class="headerlink" title="2. 设置环境变量"></a>2. 设置环境变量</h2><h3 id="2-1-命令行"><a href="#2-1-命令行" class="headerlink" title="2.1 命令行"></a>2.1 命令行</h3><pre><code>export ENV_PORT=3333
+</code></pre>
+<h3 id="2-2-PyCharm"><a href="#2-2-PyCharm" class="headerlink" title="2.2 PyCharm"></a>2.2 PyCharm</h3><p>通常在 PyCharm 中，会设置不同的执行配置，来应对不同的项目或环境。所以我们可以在对应的执行配置中，添加环境变量。<br>路径：Run&#x2F;Debug Configurations -&gt; 选定对应配置项 -&gt; Environment variables   </p>
+<img src="/2022/11/22/python-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE1.jpeg" class="" title="环境变量配置1">    
+
+<br>
+
+<img src="/2022/11/22/python-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE2.jpeg" class="" title="环境变量配置2"> 
+
+
+<h2 id="3-如何读取环境变量"><a href="#3-如何读取环境变量" class="headerlink" title="3. 如何读取环境变量"></a>3. 如何读取环境变量</h2><h3 id="3-1-命令行直接读取"><a href="#3-1-命令行直接读取" class="headerlink" title="3.1 命令行直接读取"></a>3.1 命令行直接读取</h3><p>echo + 需要读取的变量 </p>
+<pre><code>echo $ENV_PORT
+</code></pre>
+<h3 id="3-2-os-读取"><a href="#3-2-os-读取" class="headerlink" title="3.2 os 读取"></a>3.2 os 读取</h3><pre><code>import os
+
+os.getenv(&#39;ENV_PORT&#39;)
+
+-------------
+3333
+</code></pre>
+<h2 id="4-环境变量的作用"><a href="#4-环境变量的作用" class="headerlink" title="4. 环境变量的作用"></a>4. 环境变量的作用</h2><h3 id="4-1-作用："><a href="#4-1-作用：" class="headerlink" title="4.1 作用："></a>4.1 作用：</h3><p>当要求系统运行一个程序而没有告诉它程序所在的完整路径时，系统除了在当前目录下面寻找此程序外，还应到path中指定的路径去找。用户通过设置环境变量，来更好的运行进程。</p>
+<h3 id="4-2-不设置会怎么样？"><a href="#4-2-不设置会怎么样？" class="headerlink" title="4.2 不设置会怎么样？"></a>4.2 不设置会怎么样？</h3><ol>
+<li>如果不设置环境变量在cmd命令行敲击python会提示找不到python命令。</li>
+<li>如果不设置环境变量安装Python的第三方包的时候会提示找不到对应python版本路径。</li>
+<li>如不设置环境变量用pip install安装包的时候会找不到路径。</li>
+</ol>
+<h2 id="5-环境变量实际应用"><a href="#5-环境变量实际应用" class="headerlink" title="5. 环境变量实际应用"></a>5. 环境变量实际应用</h2><ol>
+<li>区分测试环境<br><em>—未完待续—</em></li>
+</ol>
+
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/">
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2022/11/20/python-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%EF%BC%88%E9%80%92%E5%BD%92%EF%BC%89/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">python-斐波那契数列（递归）</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        Plumrx
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+
+<!-- Highlight.js -->
+<link rel="stylesheet"
+      href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js">
+</script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>
