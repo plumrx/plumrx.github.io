@@ -43,8 +43,9 @@ SMTP（Simple Mail Transfer Protocol ）：简单邮件传输协议。python 默
 #### 2.1.2 Outlook邮箱  
 POP 服务器名称：outlook.office365.com
 默认端口：995  
-加密方法：TLS
+加密方法：TLS  
 
+{% asset_img outlook开启POP3.png outlook开启POP3 %}
 
 ### 2.2 邮件编辑与发送  
 
