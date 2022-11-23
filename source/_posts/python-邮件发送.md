@@ -20,7 +20,25 @@ SMTP（Simple Mail Transfer Protocol ）：简单邮件传输协议。python 默
 2. 配置邮件客户端  
 按提示，编辑短信，获取授权码。  
 {% asset_img 短信验证.png 短信验证 %}   
-{% asset_img 获取授权码.png 获取授权码 %} 
+{% asset_img 获取授权码.png 获取授权码 %}   
+
+
+
+**注意⚠️**：千万不要泄漏密码或授权码，会被用来发垃圾邮件 (T▽T) ，一大早被发了几十封！ 
+{% asset_img 授权码盗用后果.jpeg 授权码盗用 %} 
+
+**紧急处理：**  
+1. 关闭QQ邮箱授权码：设置->账户->关闭所有协议 。 
+2. 修改QQ密码：因为只有修改密码，之前的认证码才会失效。
+3. 排查泄漏源头，将其消灭。
+
+**经验教训：**  
+1. 不要泄露认证码、密码相关信息在公开的代码哭、博客或日志中。下图是我上传博客v1.0的时候，没有将认证码脱敏。  
+{% asset_image 认证码泄漏源头.jpeg 认证码泄漏源头 %}
+
+2. 一旦发现泄漏问题，及时止损，先解除之前令牌的有效性，再将源头泄漏点修补好。
+
+
 
 #### 2.1.2 Outlook邮箱  
 POP 服务器名称：outlook.office365.com
@@ -41,7 +59,7 @@ from email.mime.text import MIMEText
 # QQ邮箱服务器
 smtp_server = 'smtp.qq.com'
 sender = '664078648@qq.com'
-auth_code = 'ekmmmufolpjrbehf'
+auth_code = 'e****f'
 receiver = '664078648@qq.com'
 # QQ邮箱服务器默认端口号
 port = 465

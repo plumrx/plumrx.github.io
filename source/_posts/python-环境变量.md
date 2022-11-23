@@ -19,8 +19,12 @@ export ENV_PORT=3333
 
 ### 2.2 PyCharm  
 通常在 PyCharm 中，会设置不同的执行配置，来应对不同的项目或环境。所以我们可以在对应的执行配置中，添加环境变量。  
-路径：Run/Debug Configurations -> 选定对应配置项 -> Environment variables 
-{% asset_img 环境变量配置1.jpeg 环境变量配置1 %}   
+路径：Run/Debug Configurations -> 选定对应配置项 -> Environment variables   
+
+{% asset_img 环境变量配置1.jpeg 环境变量配置1 %}    
+
+<br>
+
 {% asset_img 环境变量配置2.jpeg 环境变量配置2 %} 
 
 
