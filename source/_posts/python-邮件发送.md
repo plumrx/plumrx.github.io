@@ -34,7 +34,7 @@ SMTP（Simple Mail Transfer Protocol ）：简单邮件传输协议。python 默
 
 **经验教训：**  
 1. 不要泄露认证码、密码相关信息在公开的代码哭、博客或日志中。下图是我上传博客v1.0的时候，没有将认证码脱敏。  
-{% asset_image 认证码泄漏源头.jpeg 认证码泄漏源头 %}
+{% asset_image 认证码泄漏源头.png 认证码泄漏源头 %}
 
 2. 一旦发现泄漏问题，及时止损，先解除之前令牌的有效性，再将源头泄漏点修补好。
 
@@ -49,7 +49,7 @@ POP 服务器名称：outlook.office365.com
 ### 2.2 邮件编辑与发送  
 
 ``` py
- 调用 SMTP 发件服务
+# 调用 SMTP 发件服务
 import smtplib
 # 导入纯文本的邮件模板类
 # MIMEText 类被用来创建主类型为 text 的 MIME 对象
@@ -58,9 +58,9 @@ from email.mime.text import MIMEText
 # 配置发送参数
 # QQ邮箱服务器
 smtp_server = 'smtp.qq.com'
-sender = '664078648@qq.com'
+sender = '**********@qq.com'
 auth_code = 'e****f'
-receiver = '664078648@qq.com'
+receiver = '**********@qq.com'
 # QQ邮箱服务器默认端口号
 port = 465
 
