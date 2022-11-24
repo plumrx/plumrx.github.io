@@ -97,6 +97,64 @@ smtp.quit()
 1. 导包
 2. 配置发送邮件相关参数（5个）:  
 发件所属邮箱服务、发件人、收件人、认证码、默认端口号
-3. 定义邮件相关参数
+3. 读取附件文件
+4. 构造邮件实例，定义三要素：  
+发件人、收件人、主题  
+5. 构建邮件体，包含附件文件格式  
+6. 调服务，发邮件
 
-----未完待续--------
+```py
+import smtplib
+# 纯文本文件模板
+from email.mime.text import MIMEText
+# 带附件
+from email.mime.multipart import MIMEMultipart
+import os
+
+# 发邮件相关参数，隐私信息配置在环境变量中
+smtp_server = 'smtp.qq.com'
+sender = os.getenv('SENDER')
+receiver = os.getenv('SENDER')
+auth_code = os.getenv('AUTH_CODE')
+port = 465
+
+# 读取准备好的附件文件
+filepath = r"./email_fujian.txt"
+with open(filepath, 'rb') as fp:
+    mail_body = fp.read()
+
+# 构造邮件实例三要素
+msg = MIMEMultipart()
+msg['from'] = sender
+msg['to'] = receiver
+msg['subject'] = "Theme of email with attach"
+
+# 构建邮件体
+body = MIMEText(mail_body, "html", "utf-8")
+msg.attach(body)
+att = MIMEText(mail_body, "base64", "utf-8")
+att['Content-Type'] = 'application/octet-stream'  # 返回的是一个二进制文件
+# filename 为邮件中展示的附件名
+att['Content-Disposition'] = 'attachment;filename="text.txt"'
+msg.attach(att)
+
+try:
+    smtpObj = smtplib.SMTP()
+    # 链接邮箱服务器
+    smtpObj.connect(smtp_server)
+    # 调用发件服务
+    smtpObj.login(sender, auth_code)
+    print("邮件发送成功")
+except:
+    smtpObj = smtplib.SMTP_SSL(smtp_server, port)
+    smtpObj.login(sender, auth_code)
+
+# 发送邮件
+smtpObj.sendmail(sender, receiver, msg.as_string())
+smtpObj.quit()
+
+```
+
+{% asset_image 带附件邮件结果.png 带附件邮件结果 %}
+<br>
+{% asset_image 邮件附件.png 邮件附件 %}
