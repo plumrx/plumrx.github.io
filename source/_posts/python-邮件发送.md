@@ -17,15 +17,20 @@ SMTP（Simple Mail Transfer Protocol ）：简单邮件传输协议。python 默
 1. 先设置邮箱授权码  
 设置 -> 账户 -> POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务 -> 开启POP3/SMTP服务  
 {% asset_img 开启pop3协议.jpg 开启pop3协议 %}   
+<center>图1.开启pop3协议</center>
 2. 配置邮件客户端  
 按提示，编辑短信，获取授权码。  
 {% asset_img 短信验证.png 短信验证 %}   
-{% asset_img 获取授权码.png 获取授权码 %}   
+<center>图2.短信验证</center>
+<br>
+{% asset_img 获取授权码.png 获取授权码 %} 
+<center>图3.获取授权码</center>  
 
 
 
 **注意⚠️**：千万不要泄漏密码或授权码，会被用来发垃圾邮件 (T▽T) ，一大早被发了几十封！ 
 {% asset_img 授权码盗用后果.jpeg 授权码盗用 %} 
+<center>图4.授权码盗用后果</center> 
 
 **紧急处理：**  
 1. 关闭QQ邮箱授权码：设置->账户->关闭所有协议 。 
@@ -35,6 +40,7 @@ SMTP（Simple Mail Transfer Protocol ）：简单邮件传输协议。python 默
 **经验教训：**  
 1. 不要泄露认证码、密码相关信息在公开的代码哭、博客或日志中。下图是我上传博客v1.0的时候，没有将认证码脱敏。  
 {% asset_image 认证码泄漏源头.png 认证码泄漏源头 %}
+<center>图5.认证码泄漏源头</center> 
 
 2. 一旦发现泄漏问题，及时止损，先解除之前令牌的有效性，再将源头泄漏点修补好。
 
@@ -46,6 +52,7 @@ POP 服务器名称：outlook.office365.com
 加密方法：TLS  
 
 {% asset_img outlook开启POP3.png outlook开启POP3 %}
+<center>图6.outlook开启POP3</center> 
 
 ### 2.2 邮件编辑与发送  
 
@@ -84,8 +91,8 @@ smtp.sendmail(sender, receiver, msg.as_string())
 smtp.quit()
 ```  
 
-  
-<div style="width:70%;margin:auto">{% asset_img 纯文本邮件.jpg 邮件结果 %} </div>
+{% asset_img 纯文本邮件.jpg 邮件结果 %}
+<center>图7.纯文本邮件</center> 
 
 
 
@@ -156,5 +163,7 @@ smtpObj.quit()
 ```
 
 {% asset_image 带附件邮件结果.png 带附件邮件结果 %}
+<center>图8.带附件邮件结果</center>
 <br>
 {% asset_image 邮件附件.png 邮件附件 %}
+<center>图9.邮件附件</center>
