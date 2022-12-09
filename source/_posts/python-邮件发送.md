@@ -167,3 +167,82 @@ smtpObj.quit()
 <br>
 {% asset_image 邮件附件.png 邮件附件 %}
 <center>图9.邮件附件</center>
+
+
+
+
+
+## 4. 发邮件小工具  
+完成了之前的步骤，想实现一个功能更加完善的发邮件小工具，封装完全，直接调用即可，更加便捷。  
+
+### ---------知识积累=遇到问题---------  
+
+1. 类变量、成员变量、局部变量  
+**类变量**：定义在类中，不在任何方法内部。类/对象皆可调用。  
+**成员变量**：定义在构造内部，self.。对象调用。  
+**局部变量**：定义在方法内部，不加self。  
+参考链接：https://plumrx.github.io/2022/08/09/python-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#9-%E7%B1%BB%E5%8F%98%E9%87%8F%E3%80%81%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%EF%BC%88%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%EF%BC%89%E3%80%81%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F
+
+2. 实例方法、静态方法、类方法  
+**实例方法**：第一个参数一般为self，只能由实例调用。  
+**静态方法**：装饰器@staticmethod，参数随意，不能使用类和实例的各种属性和方法。主要用于存放逻辑性代码，归属于类但是跟类本身关联性不大。    
+**类方法**：装饰器@classmethod，...  
+
+3. 封装是否是必须的？  
+封装是为了提高代码的内聚性和可读性，如果复用较多的方法，可以进行封装，否则没有必要。python类中的静态方法，去掉类之后，可以单独封装。
+
+4. 缺省参数  
+具有默认值的参数称为缺省参数。  
+* 定义函数入参时，必填参数在缺省参数前面。 
+* 调用带有多个缺省参数的函数时，需要指定参数名。  
+
+5. .join()  
+用于将序列中的元素，以指定的字符连接成新的字符串。  
+```
+tolist='333'
+message=','.join(tolist)
+print(message)
+-----------
+3,3,3
+```
+
+
+6. json  
+* dumps - 编码  
+* loads - 解码  
+```
+import json
+data = {
+    'no' : 1,
+    'name' : 'plumrx',
+}
+json_string=json.dumps(data)
+print("原始数据：",data)
+print("json数据：",json_string)
+print('data2[no]=',data2['no'])
+-----------------------
+原始数据： {'no': 1, 'name': 'plumrx'}
+json数据： {"no": 1, "name": "plumrx"}
+data2[no]= 1
+```
+
+
+
+
+
+### -- help 使用说明
+```py
+
+send_email(send_addr, auth_code, receives_addr, send_name='', cc_addr='', bcc_addr='', subject='', body_path='',
+               attach_path=''):
+
+send_addr：发件地址，只能有一个。
+auth_code：认证码，即邮箱开启pop3/smtp协议后生成的认证码。
+receives_addr：收件人，可以有多个，用逗号分隔。
+[send_name]：发件人名称，可以用来标识身份，不填即与发件地址相同。
+[cc_addr]：抄送邮件地址，可以有多个，用逗号分隔。
+[bcc_addr]：隐蔽抄送邮件地址，可以有多个，用逗号分隔。
+[subject]：邮件主题，不填即为“无主题”。
+[body_path]：邮件内容文件路径，不填即为空白。
+[attach_path]：附件文件路径，目前仅支持一个，不填即无附件。
+```
