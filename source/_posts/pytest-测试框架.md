@@ -32,4 +32,6 @@ tags:
 | 失败重跑  | 无 | pytest-rerunfailures插件 |
 
 ### 1.3 pytest 环境搭建
-> pip install -U pytest
+> pip install pytest  
+{% asset_image 安之前.png 安之前 %}  
+{% asset_image 安之后.png 安之后 %}
