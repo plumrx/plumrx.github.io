@@ -54,7 +54,7 @@ https://docs.python.org/zh-cn/3.7/library/venv.html#module-venv
 ◆ 查看帮助命令：python3 -m venv --help
 ◆ 创建虚拟环境：python3 -m venv py3_env （py3_env指定所创建虚拟环境的名称）
 
-创建虚拟环境
+### 创建虚拟环境  
 1. 切换到需要建立新环境的路径下
 2. 执行以下命令，最后参数是环境名
 > python -m venv pytestpro
