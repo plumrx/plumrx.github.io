@@ -27,3 +27,52 @@ tags:
 # 3. 实践：ffmpeg3 库
     1. 安装 ffmpy3
     {% asset_image 安装ffmpy3.png 安装ffmpy3 %}
+    2. 编写代码
+```
+# 1. 导包
+## 读写文件需要用到
+import os
+from ffmpy3 import FFmpeg
+
+# 2. 确定音视频文件路径
+input_file_path = r"./vedio"
+output_file_path = r"./audio"
+
+# 3. 处理视频文件
+vedio_name = os.listdir(input_file_path)
+print("待处理视频文件为：")
+print(vedio_name)
+print('\n')
+
+# 4. 处理音频文件
+audio_name = os.listdir(output_file_path)
+print("已完成的音频文件为：")
+print(audio_name)
+print('\n')
+
+# 4. 文件转换（改文件名+格式转换）
+for i in range(len(vedio_name)):
+    # 改后缀
+    change_file = input_file_path + '/' + vedio_name[i]
+    # 支持多种视频格式，暂列两种
+    change_name = vedio_name[i].replace('mp4', 'mp3').replace('flv', 'mp3')
+
+    output_file = output_file_path + '/' + change_name
+    if change_name in audio_name:
+        continue
+    print(change_file)
+
+    # FFmpeg 转换
+    fpg = FFmpeg(inputs={change_file: None},
+                 outputs={output_file: '-vn -ar 44100 -ac 2 -ab 192 -f mp3'})
+    print(fpg.cmd)
+    fpg.run()
+
+```
+
+    3. 执行结果
+    {% asset_image 执行结果v1.png 执行结果成功 %}
+
+    4. 文件展示  
+    
+    {% asset_image 音视频.png 文件产出 %}
